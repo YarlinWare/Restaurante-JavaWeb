@@ -1,0 +1,10 @@
+@import './normalize.css';
+
+body{
+    background: #343a40;
+}
+.menuElementos{
+    display: flex;
+    align-items: center;
+    
+}
