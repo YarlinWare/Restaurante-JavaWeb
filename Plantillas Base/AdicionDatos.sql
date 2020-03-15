@@ -15,3 +15,6 @@ INSERT INTO `productos` (`idProducto`, `nombre`, `descripcion`, `valor`, `estado
 INSERT INTO `productos` (`idProducto`, `nombre`, `descripcion`, `valor`, `estado`) VALUES ('4', 'Crema de champiñones', 'Crema de champiñones acompañada con pancitos y parmesano. ', '13500', '1'), ('5', 'Panino Pollo Carbonara', 'Pollo a la plancha con champiñón portobello y tocineta; cubierto con salsa carbonara y mozzarella. ', '26100', '1');
 INSERT INTO `productos` (`idProducto`, `nombre`, `descripcion`, `valor`, `estado`) VALUES ('6', 'Canelones Ricotta y Espinaca', 'Tres rollos de pasta artesanal, rellenos con espinaca, ricotta y tomates secos, gratinados con salsa blanca, napolitana y parmesano. ', '21600', '1'), ('7', 'Bowl Pesto', 'Queso bocconcini de búfala o tofu, cuscús al pesto, tomates cherry, champiñones salteados, zanahorias rostizadas y mix de lechugas; con aderezo ranch. ', '21000', NULL);
 INSERT INTO `usuario` (`idUsuario`, `idPerfil`, `nombres`, `apellidos`, `correo`, `celular`, `password`) VALUES ('4', '1', 'Sophia', 'Reyes', 'sreyes@restaurante.com', '3009876765', 'administrador'), ('5', '3', 'Pedro', 'Perez', 'pperez@restaurante.com', '3109996543', 'cliente');
+
+
+INSERT INTO `pedido_detalle` (`idPedido`, `idDetalle`, `idProducto`, `cantidad`, `estado`) VALUES ('1', '1', '6', '1', '1'), ('2', '2', '1', '2', '1');
