@@ -1,0 +1,31 @@
+body{
+  font-family: 'Abel', sans-serif;
+    
+  margin: 0;
+  margin-bottom: 40px;
+}
+div.caroucel-text{
+    background: #ffffff7a 000;
+	color: #000;
+}
+a.btn-ingreso{
+	color: #17a2b8;
+}
+.btn-ingreso-registro a{ 
+	font-family: 'Anton';
+}
+
+/* Formulario registro */
+
+h2.titulo{
+	font-family: 'Anton';
+}
+html {
+  min-height: 100%;
+  position: relative;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

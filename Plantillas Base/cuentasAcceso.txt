@@ -1,0 +1,11 @@
+ahernandez@restaurante.com
+administrador
+
+hperez@restaurante.com
+camarero
+
+sreyes@restaurante.com
+administrador
+
+pperez@restaurante.com
+cliente

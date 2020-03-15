@@ -1,3 +1,5 @@
 /Restaurante-JSP/nbproject/private/
 gitignore/*
 gitignore
+/Restaurante-JSP/build/
+/Restaurante-JSP/dist/
