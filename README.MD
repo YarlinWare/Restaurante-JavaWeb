@@ -13,7 +13,7 @@
 
 
 #### Miembros Grupo:
-- Andrés Salinas. 201720....
+- Andrés Salinas. 20172020087
 - Cristhian M. Yara P. 20171020088
 
 #### Tecnologías Utilizadas:
