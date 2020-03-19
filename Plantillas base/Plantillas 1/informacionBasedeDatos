@@ -38,13 +38,15 @@ Estado
 CREATE TABLE productos 
 (
     idProducto INT NOT NULL,
+    idCategoria INT NOT NULL,
     nombre VARCHAR(30),
     descripcion TEXT,
     valor INT(30),
     estado BOOLEAN,
     password VARCHAR(30),
     INDEX (idProducto),
-   	PRIMARY KEY (idProducto)
+    PRIMARY KEY (idProducto),
+    FOREIGN KEY (idCategoria) REFERENCES categoria(idCategoria)
 ) TYPE = INNODB;
 
 + Productos (Menu)
@@ -121,3 +123,20 @@ Pagado
 
 
 
+CREATE TABLE categoria
+(   
+    idCategoria INT NOT NULL,
+    nombres VARCHAR(30),
+    descripcion VARCHAR(30),
+    PRIMARY KEY (idCategoria),
+)
+
+
+INSERT INTO `categoria` (`idCategoria`, `nombres`, `descripcion`) VALUES ('1', 'Entradas', NULL), ('2', 'Ensaladas/Bowls', NULL), ('3', 'Veggie', NULL), ('4', 'Pastas', NULL), ('5', 'Pizzas', NULL), ('6', 'Panini', NULL), ('7', 'Horno', NULL), ('8', 'Bebidas', NULL), ('9', 'Postres', NULL);
+
+
+
+ALTER TABLE productos
+    ADD COLUMN idCategoria INT NOT NULL default 1,
+    ADD CONSTRAINT `idCategoria` FOREIGN KEY (idCategoria)
+        REFERENCES medicos (idCategoria);
