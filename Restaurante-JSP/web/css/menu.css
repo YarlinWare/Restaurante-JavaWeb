@@ -1,0 +1,30 @@
+.card-text {
+    font-size: .7rem;
+    height: 120px;
+	align-items: center;
+}
+.add-to-cart:hover {
+    background: #FE980F;
+    color: #FFFFFF;
+}
+.add-to-cart:hover {
+    background: #FE980F;
+    border: 0 none;
+    border-radius: 0;
+    color: #FFFFFF;
+}
+.add-to-cart {
+    background: #F5F5ED;
+    border: 0 none;
+    border-radius: 0;
+    color: #696763;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+
+.carrito_compras {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}

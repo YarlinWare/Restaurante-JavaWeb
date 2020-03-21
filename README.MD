@@ -4,17 +4,21 @@
 #### Página Java Web - JSP y MySQL
 ##### Descripción 
 
-- 
--
-- 
-- 
-- 
+- Página web de un restaurante
+- Implementación de los principios SOLID
+- Conexión con Bases de datos
+- Permite añadir productos (solo administradores)
+- Carrito de compras
+- Etc
 	  
 
 
 #### Miembros Grupo:
-- Andrés Salinas. 20172020087
-- Cristhian M. Yara P. 20171020088
+Nombre  | Código
+------------- | -------------
+Andrés Salinas.  | 20172020087
+Cristhian M. Yara P.  | 20181020081 
+ 
 
 #### Tecnologías Utilizadas:
 - Bootstrap

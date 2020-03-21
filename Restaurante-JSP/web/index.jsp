@@ -52,10 +52,10 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item active px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="index.html">Inicio</a>
+              <a class="nav-link text-uppercase text-expanded" href="index.jsp">Inicio</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="about.html">Historia</a>
+              <a class="nav-link text-uppercase text-expanded" href="menu.jsp">Menu</a>
             </li>
             <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="services.html">Servicios</a>
