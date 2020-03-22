@@ -79,21 +79,21 @@ p {
   background-color: rgba(255, 255, 255, 0.85);
 }
 
-#mainNav {
+#mainNav,.mainNav {
   background-color: rgba(47, 23, 15, 0.9);
   font-family: 'Raleway';
 }
 
-#mainNav .navbar-brand {
+#mainNav .navbar-brand,.mainNav  .navbar-brand{
   color: #e6a756;
 }
 
-#mainNav .navbar-nav .nav-item .nav-link {
+#mainNav .navbar-nav .nav-item .nav-link, .mainNav .navbar-nav .nav-item .nav-link {
   color: rgba(255, 255, 255, 0.7);
   font-weight: 800;
 }
 
-#mainNav .navbar-nav .nav-item.active .nav-link {
+#mainNav .navbar-nav .nav-item.active .nav-link, .mainNav .navbar-nav .nav-item.active .nav-link{
   color: #e6a756;
 }
 
@@ -298,4 +298,21 @@ ul.errorlist{
   padding-top: .75rem;
   font-style: italic;
   color: red;
+}
+/* menu acceso*/
+.menuAcceso{
+    background: #341c1494;
+    font-family: 'Lora'; 
+}
+/* Formulario de ingreso*/
+.formulario-ingreso, .formularioRegistro{
+    background: #FFFFFF;
+    margin: 20px;
+    padding: 53px;
+    border-radius: 20px;
+    font-family: 'Lora'; 
+}
+.formulario-ingreso, .formulario-ingreso input, .formulario-ingreso a{
+    
+    font-family: 'Lora'; 
 }

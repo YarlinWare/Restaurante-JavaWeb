@@ -135,7 +135,7 @@
                 <a href="#" class="link">Aviso legal</a> ·
                 <a href="#" class="link">Cookies</a>
             </p>
-            <p class="m-0 mbt1 ">&copy; Restaurante 2020</p>
+            <p class="m-0 mbt1">&copy; Las Delicias 2020</p>
         </div>
     </footer>
     <!-- ./Pié de página -->

@@ -1,17 +1,12 @@
 <%-- 
-    Document   : index.jsp
-    Created on : 15-mar-2020, 16.14.30
-    Author     : ASUS
+    Document   : login
+    Created on : 26/10/2019, 02:54:15 PM
+    Author     : rapterpakfa
 --%>
-<%@page import="java.util.List"%>
 
-<%@page import="java.sql.ResultSet"%>
-<%@page import="database.DBContactos"%>
-<%@page import="usuario.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
   <head>
 
@@ -36,8 +31,8 @@
   </head>
 
   <body>
-      <!-- Menu acceso -->
-      <nav class="navbar navbar-expand-lg navbar-dark row justify-content-between">
+    <!-- Menu acceso -->
+      <nav class="navbar navbar-expand-lg navbar-dark row justify-content-between menuAcceso">
         <a href="index.jsp" class="navbar-brand pl-3 ">
           <img src="img/logo.png" width="auto" height="40" alt="">
         </a>
@@ -48,7 +43,6 @@
         </div>
       </nav>
     <!-- Menu acceso -->
-    
     <h1 class="site-heading text-center text-white d-none d-lg-block">
       <span class="site-heading-upper text-primary mb-3">Restaurante</span>
       <span class="site-heading-lower">Tus Delicias</span>
@@ -86,44 +80,46 @@
       </div>
     </nav>
 
-    <!-- Cabecera -->
-    <section class="page-section clearfix">
-      <div class="container">
-        <div class="intro">
-          <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="img/intro.jpg" alt="">
-          <div class="intro-text left-0 text-center bg-faded p-5 rounded">
-            <h2 class="section-heading mb-4">
-              <span class="section-heading-upper">Déjate sorprender</span>
-              <span class="section-heading-lower">Te gustará</span>
-            </h2>
-            <p class="mb-3">Trabajamos sólo con los mejores ingredientes. Una vez lo pruebes, nuestro café será la mejor forma de empezar tu rutina diaria.
-            </p>
-            <div class="intro-button mx-auto">
-              <a class="btn btn-primary btn-xl" href="store.html">Visítanos</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  
 
-    <!-- Mensaje -->
-    <section class="page-section cta">
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-9 mx-auto">
-            <div class="cta-inner text-center rounded">
-              <h2 class="section-heading mb-4">
-                <span class="section-heading-upper">Compromiso total</span>
-                <span class="section-heading-lower">Garantizado</span>
-              </h2>
-              <p class="mb-0">Sed pulvinar blandit elit id venenatis. Ut eget lacus neque. Nullam justo quam, efficitur nec turpis vitae, efficitur posuere ligula. Proin ut turpis orci. Aenean porta sodales lectus faucibus pellentesque. In sed felis iaculis, rhoncus felis a, maximus mi.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Pié de página -->
+  <!-- Contenido -->  
+  <div class="container pt-5 pb-5">
+    <div class="row justify-content-center">
+      <div class=" formulario-ingreso">
+        <form class="form" method="POST" action="j_security_check">
+          <div class="contain_form">
+            <fieldset class="login_fieldset">
+              
+              <h3 class="text-center">Las Delicias</h3>
+             
+              <hr>
+              <div class="form-group columns_div">
+                <label>Usuario</label>              
+                <input type="text" class="form-control" id="j_username" name="j_username" placeholder="Usuario">
+                <label>Password</label>
+                <input type="password" class="form-control" id="j_password" name="j_password" placeholder="password">
+
+                <div class="row pt-3">
+                  <div class="col-6">
+                    <a href="#"><span>Registrar</span></a>
+                  </div> 
+                  <div class="col-6">
+                    <input type="submit" class="btn btn-info" value="Ingresar">
+                  </div>            
+                </div>  
+                <br>
+                <a href="#" class="forget">Olvido su contraseña?</a>
+              </div>              
+            </fieldset> 
+          </div>  
+        </form>
+      </div>      
+    </div>    
+  </div>
+  
+
+  <!-- Pié de página -->
     <footer class="footer text-faded text-center py-5">
       <div class="container">
         <p class="m-0">

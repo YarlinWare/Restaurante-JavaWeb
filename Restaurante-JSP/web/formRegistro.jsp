@@ -1,17 +1,12 @@
 <%-- 
-    Document   : index.jsp
-    Created on : 15-mar-2020, 16.14.30
-    Author     : ASUS
+    Document   : formRegistro
+    Created on : 26/10/2019, 02:52:59 PM
+    Author     : rapterpakfa
 --%>
-<%@page import="java.util.List"%>
 
-<%@page import="java.sql.ResultSet"%>
-<%@page import="database.DBContactos"%>
-<%@page import="usuario.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
   <head>
 
@@ -86,42 +81,68 @@
       </div>
     </nav>
 
-    <!-- Cabecera -->
-    <section class="page-section clearfix">
-      <div class="container">
-        <div class="intro">
-          <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="img/intro.jpg" alt="">
-          <div class="intro-text left-0 text-center bg-faded p-5 rounded">
-            <h2 class="section-heading mb-4">
-              <span class="section-heading-upper">Déjate sorprender</span>
-              <span class="section-heading-lower">Te gustará</span>
-            </h2>
-            <p class="mb-3">Trabajamos sólo con los mejores ingredientes. Una vez lo pruebes, nuestro café será la mejor forma de empezar tu rutina diaria.
-            </p>
-            <div class="intro-button mx-auto">
-              <a class="btn btn-primary btn-xl" href="store.html">Visítanos</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Mensaje -->
-    <section class="page-section cta">
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-9 mx-auto">
-            <div class="cta-inner text-center rounded">
-              <h2 class="section-heading mb-4">
-                <span class="section-heading-upper">Compromiso total</span>
-                <span class="section-heading-lower">Garantizado</span>
-              </h2>
-              <p class="mb-0">Sed pulvinar blandit elit id venenatis. Ut eget lacus neque. Nullam justo quam, efficitur nec turpis vitae, efficitur posuere ligula. Proin ut turpis orci. Aenean porta sodales lectus faucibus pellentesque. In sed felis iaculis, rhoncus felis a, maximus mi.</p>
+    <!-- Contenido -->
+    <div class="container pt-5 pb-5 formularioRegistro ">
+        <div class="">
+            <div class="card-header text-center">
+                <h2 class="titulo">Información de registro</h2>
             </div>
-          </div>
+        <form action="Registro" name="Form1" id="Form1" enctype="multipart/form-data" target="_blank" class="pt-3 pb-5" >
+            <div class="row ">
+                <!-- Datos basicos-->			
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group">
+                        <label for="name1">Usuario</label>
+                        <input type="text" class="form-control" id="name1" name="name1" placeholder="Usuario">
+                    </div>
+                    <div class="form-group">
+                        <label for="email1">Email address</label>
+                        <input type="email" class="form-control" id="email1" name="email1" placeholder="name@example.com">
+                    </div>
+                    <div class="form-group ">
+                        <label for="pass1">Password</label>
+                        <input type="password" class="form-control" id="pass1" name="pass1" placeholder="*********">
+                    </div>
+                    <div class="form-group ">
+                        <label for="pass2">Confirmar password</label>
+                        <input type="password" class="form-control" id="pass2" name="pass2" placeholder="*********">
+                    </div>
+                    <div class="form-group ">
+                        <label for="celphone">Celular</label>
+                        <input type="number" class="form-control" id="celphone" name="celphone" placeholder="300-987 65 43">
+                    </div>
+                </div>
+                <!-- ./Datos basicos-->
+
+                <!-- Información médica-->
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group ">
+                        <label for="edad">Edad</label>
+                        <input type="number" class="form-control" id="edad" name="edad" placeholder="20 años">
+                    </div>
+                    <div class="form-group ">
+                        <label for="Estatura">Estatura (cm)</label>
+                        <input type="number" class="form-control" id="estatura" name="estatura" placeholder="170 cm">	
+                    </div>
+                    <div class="form-group ">
+                        <label for="peso">Peso (kg)</label>
+                        <input type="number" class="form-control" id="peso" name="peso" placeholder="56kg">
+                    </div>
+                    <div class="form-group ">
+                        <label for="historial">Historial clínico</label>
+                        <textarea class="form-control" id="historial" name="historial" placeholder="Indica acerca de probleams de salud, cirugias, tratamientos, alergias, entre otros." rows="5"></textarea>
+                    </div>					
+                </div> 
+            </div>
+            <input type="submit" class="btn btn-info btn-lg btn-block" value="Registrar">            
+        </form>
         </div>
-      </div>
-    </section>
+        
+        
+    </div>
+    <!-- ./Contenido -->
+
 
     <!-- Pié de página -->
     <footer class="footer text-faded text-center py-5">
