@@ -5,149 +5,83 @@
     Productos producto = new ControladorProducto().getProducto(id);
 %>
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="es">
+
+  <head>
+
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Product Details | E-Shopper</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/prettyPhoto.css" rel="stylesheet">
-    <link href="css/price-range.css" rel="stylesheet">
-    <link href="css/animate.css" rel="stylesheet">
-	<link href="css/main.css" rel="stylesheet">
-	<link href="css/responsive.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->       
-    <link rel="shortcut icon" href="images/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
-</head><!--/head-->
 
-<body>
-	<header id="header"><!--header-->
-		<div class="header_top"><!--header_top-->
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-6">
-						<div class="contactinfo">
-							<ul class="nav nav-pills">
-								<li><a href=""><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-								<li><a href=""><i class="fa fa-envelope"></i> info@domain.com</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-sm-6">
-						<div class="social-icons pull-right">
-							<ul class="nav navbar-nav">
-								<li><a href=""><i class="fa fa-facebook"></i></a></li>
-								<li><a href=""><i class="fa fa-twitter"></i></a></li>
-								<li><a href=""><i class="fa fa-linkedin"></i></a></li>
-								<li><a href=""><i class="fa fa-dribbble"></i></a></li>
-								<li><a href=""><i class="fa fa-google-plus"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div><!--/header_top-->
-		
-		<div class="header-middle"><!--header-middle-->
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-4">
-						<div class="logo pull-left">
-							<a href="index.html"><img src="images/home/logo.png" alt="" /></a>
-						</div>
-						<div class="btn-group pull-right">
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									USA
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="">Canada</a></li>
-									<li><a href="">UK</a></li>
-								</ul>
-							</div>
-							
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									DOLLAR
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="">Canadian Dollar</a></li>
-									<li><a href="">Pound</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-8">
-						<div class="shop-menu pull-right">
-							<ul class="nav navbar-nav">
-								<li><a href=""><i class="fa fa-user"></i> Account</a></li>
-								<li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
-								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div><!--/header-middle-->
-	
-		<div class="header-bottom"><!--header-bottom-->
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-9">
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
-						</div>
-						<div class="mainmenu pull-left">
-							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="index.html">Home</a></li>
-								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html">Products</a></li>
-										<li><a href="product-details.html" class="active">Product Details</a></li> 
-										<li><a href="checkout.html">Checkout</a></li> 
-										<li><a href="cart.html">Cart</a></li> 
-										<li><a href="login.html">Login</a></li> 
-                                    </ul>
-                                </li> 
-								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.html">Blog List</a></li>
-										<li><a href="blog-single.html">Blog Single</a></li>
-                                    </ul>
-                                </li> 
-								<li><a href="404.html">404</a></li>
-								<li><a href="contact-us.html">Contact</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-sm-3">
-						<div class="search_box pull-right">
-							<input type="text" placeholder="Search"/>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div><!--/header-bottom-->
-	</header><!--/header-->
+    <title>Inicio | Restaurante</title>
+
+    <!-- Bootstrap -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Fuentes -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Estilos -->
+    <link href="css/business-casual.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+      <!-- Menu acceso -->
+      <nav class="navbar navbar-expand-lg navbar-dark row justify-content-between">
+        <a href="index.jsp" class="navbar-brand pl-3 ">
+          <img src="img/logo.png" width="auto" height="40" alt="">
+        </a>
+        <div>
+            <a href="checkout.jsp"><i class="fa fa-crosshairs iconosCompra"></i>Checkout</a>
+            <a href="cart.jsp"><i class="fa fa-shopping-cart iconosCompra"></i>Cart</a>
+        </div>
+        <div class="d-flex aling-item-end pr-3 btn-ingreso-registro">
+          <a href="login.jsp" class="btn btn-ingreso nav-link text-uppercase text-expanded">Ingresar</a>
+          <a href="registro.jsp" class="btn btn-info nav-link text-uppercase text-expanded">Registrar</a>
+        </div>
+      </nav>
+    <!-- Menu acceso -->
+    
+    <h1 class="site-heading text-center text-white d-none d-lg-block">
+      <span class="site-heading-upper text-primary mb-3">Restaurante</span>
+      <span class="site-heading-lower">Tus Delicias</span>
+    </h1>
+
+    <!-- Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="index.html">La Caffettiera</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item active px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="index.jsp">Inicio</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="menu.jsp">Menu</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="services.html">Servicios</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="store.html">Visítanos</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="contact.html">Contacto</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="blog.html">Blog</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 	
 	<section>
 		<div class="container">
@@ -205,11 +139,43 @@
                             </div>
                         </section>
                                         
-    <script src="js/jquery.js"></script>
-	<script src="js/price-range.js"></script>
-    <script src="js/jquery.scrollUp.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/main.js"></script>
-</body>
+
+    <!-- Pié de página -->
+    <footer class="footer text-faded text-center py-5">
+      <div class="container">
+        <p class="m-0">
+	        <a href="#" class="link">
+	          <span class="fa-stack fa-lg">
+	            <i class="fa fa-circle fa-stack-2x"></i>
+	            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+	          </span>
+	        </a>
+	        <a href="#" class="link">
+	          <span class="fa-stack fa-lg">
+	            <i class="fa fa-circle fa-stack-2x"></i>
+	            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+	          </span>
+	        </a>
+	        <a href="#" class="link">
+	          <span class="fa-stack fa-lg">
+	            <i class="fa fa-circle fa-stack-2x"></i>
+	            <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+	          </span>
+	        </a>
+	    </p>
+        <p class="m-0 mbt">
+        	<a href="sample.html" class="link">Política de privacidad</a> ·
+        	<a href="sample.html" class="link">Aviso legal</a> ·
+        	<a href="sample.html" class="link">Cookies</a>
+		</p>
+        <p class="m-0 mbt1">&copy; Las Delicias 2020</p>
+      </div>
+	</footer>
+
+    <!-- Bootstrap -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
 </html>

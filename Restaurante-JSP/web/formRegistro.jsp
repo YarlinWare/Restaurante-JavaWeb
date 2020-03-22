@@ -88,7 +88,7 @@
             <div class="card-header text-center">
                 <h2 class="titulo">Información de registro</h2>
             </div>
-        <form action="Registro" name="Form1" id="Form1" enctype="multipart/form-data" target="_blank" class="pt-3 pb-5" >
+        <form action="insertarRegistro" name="Form1" id="Form1" enctype="multipart/form-data" target="_blank" class="pt-3 pb-5" >
             <div class="row ">
                 <!-- Datos basicos-->			
                 <div class="col-sm-12 col-md-6">

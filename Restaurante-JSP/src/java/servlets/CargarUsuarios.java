@@ -48,7 +48,7 @@ public class CargarUsuarios extends HttpServlet {
                 u.setId(res.getInt("idUsuario"));
                 u.setNombre(res.getString("nombres"));
                 u.setApellido("apellidos");
-                u.setCelular(res.getString("celular"));
+                u.setCelular(res.getInt("celular"));
                 u.setCorreo("correo");
                 u.setPassword("password");
                 u.setIdPerfil(res.getInt("idPerfil"));

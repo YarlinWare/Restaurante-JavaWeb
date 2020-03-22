@@ -20,7 +20,7 @@ public class Usuario{
     String nombre;
     String apellido;
     String correo;
-    String celular;
+    int celular;
     String password;
     int idPerfil;
     
@@ -60,11 +60,11 @@ public class Usuario{
         this.correo = correo;
     }
 
-    public String getCelular() {
+    public int getCelular() {
         return celular;
     }
 
-    public void setCelular(String celular) {
+    public void setCelular(int celular) {
         this.celular = celular;
     }
 

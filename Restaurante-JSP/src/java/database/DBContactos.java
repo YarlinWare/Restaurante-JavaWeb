@@ -57,19 +57,21 @@ public class DBContactos {
 
     public void insertarContacto(Usuario c) {
         try {
-            PreparedStatement pstm = cn.getConexion().prepareStatement("insert into usuario (idPerfil,"
+            PreparedStatement pstm = cn.getConexion().prepareStatement("insert into usuario (idUsuario,"
+                    + " idPerfil, "
                     + " nombres, "
                     + " apellidos,"
                     + " correo, "
                     + " celular,"
                     + " password)"        
-                    + " values(?,?,?,?,?,?)");
-            pstm.setInt(1, c.getIdPerfil());
-            pstm.setString(2, c.getNombre());
-            pstm.setString(3, c.getApellido());
-            pstm.setString(4, c.getCorreo());
-            pstm.setString(5, c.getCelular());
-            pstm.setString(6, c.getPassword());
+                    + " values(?,?,?,?,?,?,?)");
+            pstm.setInt(1, c.getId());
+            pstm.setInt(2, c.getIdPerfil());
+            pstm.setString(3, c.getNombre());
+            pstm.setString(4, c.getApellido());
+            pstm.setString(5, c.getCorreo());
+            pstm.setInt(6, c.getCelular());
+            pstm.setString(7, c.getPassword());
 
             pstm.executeUpdate();
 
@@ -83,21 +85,19 @@ public class DBContactos {
     public void actualizarContacto(Usuario c) {
 
         try {
-            PreparedStatement pstm = cn.getConexion().prepareStatement("update contactos set con_nombre = ?, "
-                    + " con_apellido = ?,"
-                    + " con_tipo_usuario = ?, "
-                    + " con_telefono_domicilio = ?,"
-                    + " con_telefono_oficina = ?,"
-                    + " con_celular = ?,"
-                    + " con_correo = ?,"
-                    + " con_direccion_residencia = ?,"
-                    + " con_direccion_trabajo = ? "
-                    + " where con_id = ?");
+            PreparedStatement pstm = cn.getConexion().prepareStatement("update usuario set "
+                    + " nombres = ? , "
+                    + " apellidos = ? ,"
+                    + " correo = ? , "
+                    + " celular = ? ,"
+                    + " password = ? "     
+                    + " where idUsuario = ?");
             pstm.setString(1, c.getNombre());
             pstm.setString(2, c.getApellido());
-            pstm.setString(5, c.getCelular());
-            pstm.setString(6, c.getCorreo());
-            pstm.setInt(9, c.getId());
+            pstm.setString(3, c.getCorreo());
+            pstm.setInt(4, c.getCelular());
+            pstm.setString(5, c.getPassword());
+            pstm.setInt(6, c.getId());
 
             pstm.executeUpdate();
 
@@ -111,8 +111,8 @@ public class DBContactos {
     public void borrarContacto(Usuario c) {
 
         try {
-            PreparedStatement pstm = cn.getConexion().prepareStatement("delete from contactos "
-                    + " where con_id = ?");
+            PreparedStatement pstm = cn.getConexion().prepareStatement("delete from usuario "
+                    + " where idUsuario = ?");
 
             pstm.setInt(1, c.getId());
 

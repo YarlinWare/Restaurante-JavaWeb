@@ -36,7 +36,19 @@
   </head>
 
   <body>
+    <!-- Menu acceso -->
+      <nav class="navbar navbar-expand-lg navbar-dark row justify-content-between menuAcceso">
+        <a href="index.jsp" class="navbar-brand pl-3 ">
+          <img src="img/logo.png" width="auto" height="40" alt="">
+        </a>
 
+        <div class="d-flex aling-item-end pr-3 btn-ingreso-registro">
+          <a href="login.jsp" class="btn btn-ingreso nav-link text-uppercase text-expanded">Ingresar</a>
+          <a href="registro.jsp" class="btn btn-info nav-link text-uppercase text-expanded">Registrar</a>
+        </div>
+      </nav>
+    <!-- Menu acceso -->
+    
     <h1 class="site-heading text-center text-white d-none d-lg-block">
       <span class="site-heading-upper text-primary mb-3">Restaurante</span>
       <span class="site-heading-lower">Tus Delicias</span>
@@ -45,7 +57,7 @@
     <!-- Navegación -->
     <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
       <div class="container">
-        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="index.jsp">La Caffettiera</a>
+        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="index.html">La Caffettiera</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -75,8 +87,9 @@
     </nav>
         
     <div class="container">
-        <%  DBProductos dbr = new DBProductos();
-        ResultSet menu = dbr.getMenu(); 
+        <%  
+            DBProductos dbr = new DBProductos();
+            ResultSet menu = dbr.getMenu(); 
         %>
         
          <div class="row"> 
@@ -106,46 +119,43 @@
 	    </div>                           
         </div>         
     </div>
-    <br> <br> <br> <br> 
-    <!-- Pié de página -->
-    <footer class="footer text-faded text-center py-5 navbar-dark bg-dark" style="color:#fff">
-        <div class="container">
-            <p class="m-0">
-                <a href="#" class="link ">
-                  <span class="fa-stack fa-lg" style="color:#17a2b8">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-                <a href="#" class="link">
-                  <span class="fa-stack fa-lg"  style="color:#17a2b8">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-                <a href="#" class="link">
-                  <span class="fa-stack fa-lg"  style="color:#17a2b8">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-            </p>
-            <p class="m-0 mbt">
-                <a href="#" class="link">Política de privacidad</a> ·
-                <a href="#" class="link">Aviso legal</a> ·
-                <a href="#" class="link">Cookies</a>
-            </p>
-            <p class="m-0 mbt1">&copy; Las Delicias 2020</p>
-        </div>
-    </footer>
-    <!-- ./Pié de página -->
+    <br> 
+       <!-- Pié de página -->
+    <footer class="footer text-faded text-center py-5">
+      <div class="container">
+        <p class="m-0">
+	        <a href="#" class="link">
+	          <span class="fa-stack fa-lg">
+	            <i class="fa fa-circle fa-stack-2x"></i>
+	            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+	          </span>
+	        </a>
+	        <a href="#" class="link">
+	          <span class="fa-stack fa-lg">
+	            <i class="fa fa-circle fa-stack-2x"></i>
+	            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+	          </span>
+	        </a>
+	        <a href="#" class="link">
+	          <span class="fa-stack fa-lg">
+	            <i class="fa fa-circle fa-stack-2x"></i>
+	            <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+	          </span>
+	        </a>
+	    </p>
+        <p class="m-0 mbt">
+        	<a href="sample.html" class="link">Política de privacidad</a> ·
+        	<a href="sample.html" class="link">Aviso legal</a> ·
+        	<a href="sample.html" class="link">Cookies</a>
+		</p>
+        <p class="m-0 mbt1">&copy; Las Delicias 2020</p>
+      </div>
+	</footer>
 
-    <!-- Scripts Bootstrap-->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/bootstrap.bundle.js"></script>
-    <script src="js/jquery-3.3.1.slim.min.js" ></script>
-    <script src="js/popper.min.js" ></script>
-    <script src="js/vue.js" ></script>
-    <!-- ./Scripts Bootstrap-->	
-    </body>
+    <!-- Bootstrap -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
 </html>

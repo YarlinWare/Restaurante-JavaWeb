@@ -39,12 +39,12 @@ public class insertarRegistro extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             
-            c.setIdPerfil(Integer.parseInt(request.getParameter("txtId")));           
+            c.setId(Integer.parseInt(request.getParameter("txtId")));  
+            c.setIdPerfil(Integer.parseInt("1")); 
             c.setNombre(request.getParameter("txtNombre"));
             c.setApellido(request.getParameter("txtApellido"));
             c.setCorreo(request.getParameter("txtCorreo"));
-            c.setNombre(request.getParameter("txtNombre"));
-            c.setCelular (request.getParameter("txtCelular"));
+            c.setCelular(Integer.parseInt(request.getParameter("txtCelular")));
             c.setPassword(request.getParameter("txtPassword"));
             
             db.insertarContacto(c);

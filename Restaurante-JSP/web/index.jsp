@@ -10,7 +10,6 @@
 <%@page import="usuario.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="es">
 
   <head>
@@ -41,10 +40,13 @@
         <a href="index.jsp" class="navbar-brand pl-3 ">
           <img src="img/logo.png" width="auto" height="40" alt="">
         </a>
-
+        <div>
+            <a href="checkout.jsp"><i class="fa fa-crosshairs iconosCompra"></i>Checkout</a>
+            <a href="cart.jsp"><i class="fa fa-shopping-cart iconosCompra"></i>Cart</a>
+        </div>
         <div class="d-flex aling-item-end pr-3 btn-ingreso-registro">
           <a href="login.jsp" class="btn btn-ingreso nav-link text-uppercase text-expanded">Ingresar</a>
-          <a href="formRegistro.jsp" class="btn btn-info nav-link text-uppercase text-expanded">Registrar</a>
+          <a href="registro.jsp" class="btn btn-info nav-link text-uppercase text-expanded">Registrar</a>
         </div>
       </nav>
     <!-- Menu acceso -->

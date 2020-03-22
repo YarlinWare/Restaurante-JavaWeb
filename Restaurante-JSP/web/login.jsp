@@ -39,7 +39,7 @@
 
         <div class="d-flex aling-item-end pr-3 btn-ingreso-registro">
           <a href="login.jsp" class="btn btn-ingreso nav-link text-uppercase text-expanded">Ingresar</a>
-          <a href="formRegistro.jsp" class="btn btn-info nav-link text-uppercase text-expanded">Registrar</a>
+          <a href="registro.jsp" class="btn btn-info nav-link text-uppercase text-expanded">Registrar</a>
         </div>
       </nav>
     <!-- Menu acceso -->
@@ -51,7 +51,7 @@
     <!-- Navegación -->
     <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
       <div class="container">
-        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="index.html">La Caffettiera</a>
+        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="index.jsp">La Caffettiera</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -79,8 +79,6 @@
         </div>
       </div>
     </nav>
-
-  
 
 
   <!-- Contenido -->  
