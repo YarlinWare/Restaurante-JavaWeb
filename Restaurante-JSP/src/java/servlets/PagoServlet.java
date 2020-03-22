@@ -20,7 +20,7 @@ import logica.pago.TipoPago;
  *
  * @author eandr
  */
-@WebServlet(name = "Pago", urlPatterns = {"/Pago"})
+@WebServlet(name = "PagoServlet", urlPatterns = {"/PagoServlet"})
 public class PagoServlet extends HttpServlet {
         static TipoPago tp;
             static public void pagando(TipoPago tipoP){
@@ -37,27 +37,37 @@ public class PagoServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException {        
+        PrintWriter out = response.getWriter();
         response.setContentType("text/html;charset=UTF-8");
         String Tipo = request.getParameter("TipoPago");
+        out.write(Tipo);      
         if (Tipo.equalsIgnoreCase("Tarjeta")){
             Tarjeta T = new Tarjeta();
+            //T.pagar();
             pagando(T);
+            request.getSession().setAttribute("rutina", T);
         }else if(Tipo.equalsIgnoreCase("Efectivo")){
             Efectivo E = new Efectivo();
             pagando(E);
+            request.getSession().setAttribute("rutina", E);
         }
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
+        try{   
+            
+            /*out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Servlet Pago</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>" + tp.getTipoDePago()+ "</h1>");
+            //out.println("<h1>" + tp.getTipoDePago()+ "</h1>");
             out.println("</body>");
-            out.println("</html>");
+            out.println("</html>");*/
+            response.sendRedirect("menu.jsp");
+        }catch(Exception e){
+            
+        }finally {            
+            //out.close();
         }
     }
 
