@@ -57,20 +57,19 @@ public class DBContactos {
 
     public void insertarContacto(Usuario c) {
         try {
-            PreparedStatement pstm = cn.getConexion().prepareStatement("insert into contactos (con_nombre, "
-                    + " con_apellido,"
-                    + " con_tipo_usuario, "
-                    + " con_telefono_domicilio,"
-                    + " con_telefono_oficina,"
-                    + " con_celular,"
-                    + " con_correo,"
-                    + " con_direccion_residencia,"
-                    + " con_direccion_trabajo) "
-                    + " values(?,?,?,?,?,?,?,?)");
-            pstm.setString(1, c.getNombre());
-            pstm.setString(2, c.getApellido());
-            pstm.setInt(5, c.getCelular());
-            pstm.setString(6, c.getCorreo());
+            PreparedStatement pstm = cn.getConexion().prepareStatement("insert into usuario (idPerfil,"
+                    + " nombres, "
+                    + " apellidos,"
+                    + " correo, "
+                    + " celular,"
+                    + " password)"        
+                    + " values(?,?,?,?,?,?)");
+            pstm.setInt(1, c.getIdPerfil());
+            pstm.setString(2, c.getNombre());
+            pstm.setString(3, c.getApellido());
+            pstm.setString(4, c.getCorreo());
+            pstm.setString(5, c.getCelular());
+            pstm.setString(6, c.getPassword());
 
             pstm.executeUpdate();
 
@@ -96,7 +95,7 @@ public class DBContactos {
                     + " where con_id = ?");
             pstm.setString(1, c.getNombre());
             pstm.setString(2, c.getApellido());
-            pstm.setInt(5, c.getCelular());
+            pstm.setString(5, c.getCelular());
             pstm.setString(6, c.getCorreo());
             pstm.setInt(9, c.getId());
 

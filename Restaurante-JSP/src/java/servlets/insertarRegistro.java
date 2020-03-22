@@ -5,23 +5,22 @@
  */
 package servlets;
 
+import database.DBContactos;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.ResultSet;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import usuario.Usuario;
-import database.DBContactos;
 
 /**
  *
- * @author ASUS
+ * @author eandr
  */
-//@WebServlet(name = "CargarUsuarios", urlPatterns = {"/CargarRutina"})
-public class CargarUsuarios extends HttpServlet {
+@WebServlet(name = "insertarRegistro", urlPatterns = {"/insertarRegistro"})
+public class insertarRegistro extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,42 +34,28 @@ public class CargarUsuarios extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        
-        Usuario u = new Usuario();
-        DBContactos conDB = new DBContactos();
-        try {
-            int user_Id = Integer.parseInt(request.getParameter("idx"));
-            String opc = request.getParameter("opc");
-            out.write(opc);
-            ResultSet res = conDB.getContactoById(user_Id);
-            if(res.next()){
-                u.setId(res.getInt("idUsuario"));
-                u.setNombre(res.getString("nombres"));
-                u.setApellido("apellidos");
-                u.setCelular(res.getString("celular"));
-                u.setCorreo("correo");
-                u.setPassword("password");
-                u.setIdPerfil(res.getInt("idPerfil"));
-            }            
-            if(opc.equals("edit")){
-                request.getSession().setAttribute("usuario", u);
-                response.sendRedirect("editar_usuario.jsp");
-            }
-            if(opc.equals("delete")){
-                conDB.borrarContacto(u);
-                response.sendRedirect("Inicio");
-            }
-        }catch(Exception e){
+        Usuario c = new Usuario();
+        DBContactos db = new DBContactos();
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
             
-        }finally {            
-            out.close();
+            c.setIdPerfil(Integer.parseInt(request.getParameter("txtId")));           
+            c.setNombre(request.getParameter("txtNombre"));
+            c.setApellido(request.getParameter("txtApellido"));
+            c.setCorreo(request.getParameter("txtCorreo"));
+            c.setNombre(request.getParameter("txtNombre"));
+            c.setCelular (request.getParameter("txtCelular"));
+            c.setPassword(request.getParameter("txtPassword"));
+            
+            db.insertarContacto(c);
+            response.sendRedirect("index.jsp");
         }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /** 
+    /**
      * Handles the HTTP <code>GET</code> method.
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -82,8 +67,9 @@ public class CargarUsuarios extends HttpServlet {
         processRequest(request, response);
     }
 
-    /** 
+    /**
      * Handles the HTTP <code>POST</code> method.
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -95,12 +81,14 @@ public class CargarUsuarios extends HttpServlet {
         processRequest(request, response);
     }
 
-    /** 
+    /**
      * Returns a short description of the servlet.
+     *
      * @return a String containing servlet description
      */
     @Override
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
 }
