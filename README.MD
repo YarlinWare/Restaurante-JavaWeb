@@ -1,4 +1,4 @@
-# Restaurante:Café
+# Restaurante
 ## Proyecto Final PAV-G81
 
 #### Página Java Web - JSP y MySQL
