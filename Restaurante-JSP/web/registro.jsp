@@ -86,17 +86,17 @@
             <div class="card-header text-center">
                 <h2 class="titulo">Información de registro</h2>
             </div>
-        <form id="nuevoRegistro" action="InsertarUsuario" method="POST" enctype="multipart/form-data" target="_blank" class="pt-3 pb-5" >
+        <form id="nuevoRegistro" action="InsertarUsuario" method="GET" enctype="multipart/form-data" target="_blank" class="pt-3 pb-5" >
             <div class="row ">
                 <!-- Datos basicos-->			
                 <div class="col-sm-12 col-md-6">
                     <div class="form-group">
                         <label for="name1">#Usuario</label>
-                        <input type="text" class="form-control" id="txtId" name="txtId" placeholder="Nuemro usuario">
+                        <input type="text" class="form-control" id="txtId" name="txtId" placeholder="Numero usuario">
                     </div>
                     <div class="form-group">
                         <label for="name1">#Perfil</label>
-                        <input type="text" class="form-control" id="txtId" name="txtPerfil" placeholder="Nuemro Perfil">
+                        <input type="text" class="form-control" id="txtPerfil" name="txtPerfil" placeholder="Numero Perfil">
                     </div>
                     <div class="form-group">
                         <label for="email1">Nombre</label>

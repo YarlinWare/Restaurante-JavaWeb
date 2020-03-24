@@ -55,23 +55,22 @@ public class DBContactos {
         return res;
     }
 
-    public void insertarContacto(Usuario c) {
+    public void insertarContacto(Usuario user) {
         try {
-            PreparedStatement pstm = cn.getConexion().prepareStatement("insert into usuario (idUsuario,"
-                    + " idPerfil, "
-                    + " nombres, "
+            
+            PreparedStatement pstm = cn.getConexion().prepareStatement("insert into usuario (idPerfil,"
+                    + " nombres,"
                     + " apellidos,"
-                    + " correo, "
+                    + " correo,"
                     + " celular,"
                     + " password)"        
-                    + " values(?,?,?,?,?,?,?)");
-            pstm.setInt(1, c.getId());
-            pstm.setInt(2, c.getIdPerfil());
-            pstm.setString(3, c.getNombre());
-            pstm.setString(4, c.getApellido());
-            pstm.setString(5, c.getCorreo());
-            pstm.setString(6, c.getCelular());
-            pstm.setString(7, c.getPassword());
+                    + " values(?,?,?,?,?,?)");
+            pstm.setInt(1, user.getIdPerfil());
+            pstm.setString(2, user.getNombre());
+            pstm.setString(3, user.getApellido());
+            pstm.setString(4, user.getCorreo());
+            pstm.setString(5, user.getCelular());
+            pstm.setString(6, user.getPassword());
 
             pstm.executeUpdate();
 

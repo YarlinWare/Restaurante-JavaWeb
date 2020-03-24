@@ -40,7 +40,7 @@ public class insertarRegistro extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             
             c.setId(Integer.parseInt(request.getParameter("txtId")));  
-            c.setIdPerfil(Integer.parseInt("1")); 
+            c.setIdPerfil(Integer.parseInt("txtPerfil")); 
             c.setNombre(request.getParameter("txtNombre"));
             c.setApellido(request.getParameter("txtApellido"));
             c.setCorreo(request.getParameter("txtCorreo"));

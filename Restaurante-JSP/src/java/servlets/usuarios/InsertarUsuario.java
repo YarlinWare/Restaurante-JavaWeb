@@ -38,10 +38,9 @@ public class InsertarUsuario extends HttpServlet {
         Usuario user = new Usuario();
         DBContactos conDb = new DBContactos();
         try {
-            int id = Integer.parseInt(request.getParameter("txtId"));
-            int idPerfil=Integer.parseInt(request.getParameter("txtPerfil"));
-            user.setId(id); 
-            user.setIdPerfil(idPerfil); 
+            
+            user.setId(Integer.parseInt(request.getParameter("txtId"))); 
+            user.setIdPerfil(Integer.parseInt(request.getParameter("txtPerfil")));            
             user.setNombre(request.getParameter("txtNombre"));
             user.setApellido(request.getParameter("txtApellido"));
             user.setCorreo(request.getParameter("txtCorreo"));
@@ -49,7 +48,7 @@ public class InsertarUsuario extends HttpServlet {
             user.setPassword(request.getParameter("txtPassword"));
             conDb.insertarContacto(user);
             
-            response.sendRedirect("Listusuarios.jsp");
+            response.sendRedirect("index.jsp");
     } finally {            
         out.close();
     }
