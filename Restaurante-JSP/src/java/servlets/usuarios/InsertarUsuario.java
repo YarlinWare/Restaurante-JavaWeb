@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servlets;
+package servlets.usuarios;
 
 import database.DBContactos;
 import java.io.IOException;
@@ -17,10 +17,10 @@ import usuario.Usuario;
 
 /**
  *
- * @author eandr
+ * @author rapterpakfa
  */
-@WebServlet(name = "insertarRegistro", urlPatterns = {"/insertarRegistro"})
-public class insertarRegistro extends HttpServlet {
+@WebServlet(name = "InsertarUsuario", urlPatterns = {"/InsertarUsuario"})
+public class InsertarUsuario extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,23 +34,26 @@ public class insertarRegistro extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        Usuario c = new Usuario();
-        DBContactos db = new DBContactos();
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
+        PrintWriter out = response.getWriter();
+        Usuario user = new Usuario();
+        DBContactos conDb = new DBContactos();
+        try {
+            int id = Integer.parseInt(request.getParameter("txtId"));
+            int idPerfil=Integer.parseInt(request.getParameter("txtPerfil"));
+            user.setId(id); 
+            user.setIdPerfil(idPerfil); 
+            user.setNombre(request.getParameter("txtNombre"));
+            user.setApellido(request.getParameter("txtApellido"));
+            user.setCorreo(request.getParameter("txtCorreo"));
+            user.setCelular(request.getParameter("txtCelular"));
+            user.setPassword(request.getParameter("txtPassword"));
+            conDb.insertarContacto(user);
             
-            c.setId(Integer.parseInt(request.getParameter("txtId")));  
-            c.setIdPerfil(Integer.parseInt("1")); 
-            c.setNombre(request.getParameter("txtNombre"));
-            c.setApellido(request.getParameter("txtApellido"));
-            c.setCorreo(request.getParameter("txtCorreo"));
-            c.setCelular(request.getParameter("txtCelular"));
-            c.setPassword(request.getParameter("txtPassword"));
-            
-            db.insertarContacto(c);
-            response.sendRedirect("index.jsp");
-        }
+            response.sendRedirect("Listusuarios.jsp");
+    } finally {            
+        out.close();
     }
+}
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -92,3 +95,4 @@ public class insertarRegistro extends HttpServlet {
     }// </editor-fold>
 
 }
+    

@@ -1,12 +1,12 @@
 <%-- 
-    Document   : formRegistro
-    Created on : 26/10/2019, 02:52:59 PM
-    Author     : rapterpakfa
+    Document   : Editarusuarios
+    Created on : 23-mar-2020, 20.55.09
+    Author     : ASUS
 --%>
-
+<%@page import="usuario.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
   <head>
 
@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Inicio | Restaurante</title>
+    <title>Admin Usuarios | Restaurante</title>
 
     <!-- Bootstrap -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -39,7 +39,7 @@
 
         <div class="d-flex aling-item-end pr-3 btn-ingreso-registro">
           <a href="login.jsp" class="btn btn-ingreso nav-link text-uppercase text-expanded">Ingresar</a>
-          <a href="formRegistro.jsp" class="btn btn-info nav-link text-uppercase text-expanded">Registrar</a>
+          <a href="registro.jsp" class="btn btn-info nav-link text-uppercase text-expanded">Registrar</a>
         </div>
       </nav>
     <!-- Menu acceso -->
@@ -58,7 +58,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
-            <li class="nav-item px-lg-4">
+            <li class="nav-item active px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="index.jsp">Inicio</a>
             </li>
             <li class="nav-item px-lg-4">
@@ -80,69 +80,59 @@
         </div>
       </div>
     </nav>
-
-
     <!-- Contenido -->
-    <div class="container pt-5 pb-5 formularioRegistro ">
-        <div class="">
+    <div class="container ">
+        <div class="pt-5 pb-5 formularioRegistro ">
             <div class="card-header text-center">
                 <h2 class="titulo">Información de registro</h2>
             </div>
-        <form action="insertarRegistro" name="Form1" id="Form1" enctype="multipart/form-data" target="_blank" class="pt-3 pb-5" >
+        <form id="nuevoRegistro" action="ActualizarUsuario" method="POST" enctype="multipart/form-data" target="_blank" class="pt-3 pb-5" >
             <div class="row ">
                 <!-- Datos basicos-->			
                 <div class="col-sm-12 col-md-6">
                     <div class="form-group">
-                        <label for="name1">Usuario</label>
-                        <input type="text" class="form-control" id="name1" name="name1" placeholder="Usuario">
+                        <label for="numero_usuario">#Usuario</label>
+                        <input type="text" value="<%= ((Usuario)session.getAttribute("usuario")).getId()%>" class="form-control" id="txtId" name="txtId" placeholder="Nuemro usuario">
                     </div>
                     <div class="form-group">
-                        <label for="email1">Email address</label>
-                        <input type="email" class="form-control" id="email1" name="email1" placeholder="name@example.com">
+                        <label for="numero_perfil">#Perfil</label>
+                        <input type="text" value="<%= ((Usuario)session.getAttribute("usuario")).getIdPerfil()%>" class="form-control" id="txtId" name="txtPerfil" placeholder="Nuemro Perfil">
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" value="<%= ((Usuario)session.getAttribute("usuario")).getNombre() %>" class="form-control" id="txtNombre" name="txtNombre" placeholder="Nombre" z>
                     </div>
                     <div class="form-group ">
-                        <label for="pass1">Password</label>
-                        <input type="password" class="form-control" id="pass1" name="pass1" placeholder="*********">
+                        <label for="apellido">Apellido</label>
+                        <input type="text" value="<%= ((Usuario)session.getAttribute("usuario")).getApellido()%>" class="form-control" id="txtApellido" name="txtApellido" placeholder="Apellido">
                     </div>
-                    <div class="form-group ">
-                        <label for="pass2">Confirmar password</label>
-                        <input type="password" class="form-control" id="pass2" name="pass2" placeholder="*********">
-                    </div>
-                    <div class="form-group ">
-                        <label for="celphone">Celular</label>
-                        <input type="number" class="form-control" id="celphone" name="celphone" placeholder="300-987 65 43">
-                    </div>
+                    
                 </div>
                 <!-- ./Datos basicos-->
 
                 <!-- Información médica-->
                 <div class="col-sm-12 col-md-6">
                     <div class="form-group ">
-                        <label for="edad">Edad</label>
-                        <input type="number" class="form-control" id="edad" name="edad" placeholder="20 años">
+                        <label for="email">Correo</label>
+                        <input type="email" value="<%= ((Usuario)session.getAttribute("usuario")).getCorreo()%>" class="form-control"  id="txtCorreo" name="txtCorreo" placeholder="ejemplo@restaurante.com">
                     </div>
                     <div class="form-group ">
-                        <label for="Estatura">Estatura (cm)</label>
-                        <input type="number" class="form-control" id="estatura" name="estatura" placeholder="170 cm">	
+                        <label for="celphone">Celular</label>
+                        <input type="number" value="<%= ((Usuario)session.getAttribute("usuario")).getCelular()%>" class="form-control" id="txtCelular" name="txtCelular" placeholder="300-987 65 43">
                     </div>
                     <div class="form-group ">
-                        <label for="peso">Peso (kg)</label>
-                        <input type="number" class="form-control" id="peso" name="peso" placeholder="56kg">
-                    </div>
-                    <div class="form-group ">
-                        <label for="historial">Historial clínico</label>
-                        <textarea class="form-control" id="historial" name="historial" placeholder="Indica acerca de probleams de salud, cirugias, tratamientos, alergias, entre otros." rows="5"></textarea>
-                    </div>					
+                        <label for="password">Password</label>
+                        <input type="password" value="<%= ((Usuario)session.getAttribute("usuario")).getPassword()%>" class="form-control" id="txtPassword" name="txtPassword" placeholder="*******">
+                    </div>				
                 </div> 
             </div>
-            <input type="submit" class="btn btn-info btn-lg btn-block" value="Registrar">            
+            <input type="button" value="Aceptar" class="btn btn-info btn-lg btn-block" onclick="submit();">  
         </form>
         </div>
-        
+        <td colspan="5" class="links"><a href="registro.jsp">Agregar</a></td>
         
     </div>
     <!-- ./Contenido -->
-
 
     <!-- Pié de página -->
     <footer class="footer text-faded text-center py-5">
@@ -183,4 +173,3 @@
   </body>
 
 </html>
-

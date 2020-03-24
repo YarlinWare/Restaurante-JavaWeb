@@ -6,7 +6,6 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 
   <head>
@@ -87,13 +86,17 @@
             <div class="card-header text-center">
                 <h2 class="titulo">Información de registro</h2>
             </div>
-        <form id="nuevoRegistro" action="insertarRegistro" method="POST" enctype="multipart/form-data" target="_blank" class="pt-3 pb-5" >
+        <form id="nuevoRegistro" action="InsertarUsuario" method="POST" enctype="multipart/form-data" target="_blank" class="pt-3 pb-5" >
             <div class="row ">
                 <!-- Datos basicos-->			
                 <div class="col-sm-12 col-md-6">
                     <div class="form-group">
                         <label for="name1">#Usuario</label>
-                        <input type="number" class="form-control" id="txtId" name="txtId" placeholder="Nuemro usuario">
+                        <input type="text" class="form-control" id="txtId" name="txtId" placeholder="Nuemro usuario">
+                    </div>
+                    <div class="form-group">
+                        <label for="name1">#Perfil</label>
+                        <input type="text" class="form-control" id="txtId" name="txtPerfil" placeholder="Nuemro Perfil">
                     </div>
                     <div class="form-group">
                         <label for="email1">Nombre</label>
@@ -115,7 +118,7 @@
                     </div>
                     <div class="form-group ">
                         <label for="celphone">Celular</label>
-                        <input type="number" class="form-control" id="txtCelular" name="txtCelular" placeholder="300-987 65 43">
+                        <input type="password" class="form-control" id="txtCelular" name="txtCelular" placeholder="300-987 65 43">
                     </div>
                     <div class="form-group ">
                         <label for="edad">Password</label>

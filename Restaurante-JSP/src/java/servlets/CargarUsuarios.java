@@ -20,7 +20,7 @@ import database.DBContactos;
  *
  * @author ASUS
  */
-//@WebServlet(name = "CargarUsuarios", urlPatterns = {"/CargarRutina"})
+@WebServlet(name = "CargarUsuarios", urlPatterns = {"/CargarUsuarios"})
 public class CargarUsuarios extends HttpServlet {
 
     /**
@@ -46,20 +46,20 @@ public class CargarUsuarios extends HttpServlet {
             ResultSet res = conDB.getContactoById(user_Id);
             if(res.next()){
                 u.setId(res.getInt("idUsuario"));
-                u.setNombre(res.getString("nombres"));
-                u.setApellido("apellidos");
-                u.setCelular(res.getInt("celular"));
-                u.setCorreo("correo");
-                u.setPassword("password");
                 u.setIdPerfil(res.getInt("idPerfil"));
+                u.setNombre(res.getString("nombres"));
+                u.setApellido(res.getString("apellidos"));
+                u.setCelular(res.getString("celular"));
+                u.setCorreo(res.getString("correo"));
+                u.setPassword(res.getString("password"));
             }            
             if(opc.equals("edit")){
                 request.getSession().setAttribute("usuario", u);
-                response.sendRedirect("editar_usuario.jsp");
+                response.sendRedirect("Editarusuarios.jsp");
             }
             if(opc.equals("delete")){
                 conDB.borrarContacto(u);
-                response.sendRedirect("Inicio");
+                response.sendRedirect("Listusuarios.jsp");
             }
         }catch(Exception e){
             

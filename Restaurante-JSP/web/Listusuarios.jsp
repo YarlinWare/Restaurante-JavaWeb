@@ -25,23 +25,27 @@
     <div class="container">
     <table  class="mt-5 table table-responsive-md">
             <tr>
-                <thead class="thead-dark">
-                    <th scope="col">Ejercicio</th>
-                    <th scope="col">Descripcion</th>
-                    <th scope="col">Repeticiones</th>
-                    <th scope="col">Peso</th>
+                <thead class="thead-dark">                    
+                    <th scope="col">#Usuario</th>
+                    <th scope="col">#Perfil</th>
+                    <th scope="col">Nombres</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Celular</th>
                     <th scope="col">Acciones</th>
                 </thead>
             </tr>
                 <% while (usuarios.next()){ %>
                     <tr>
+                        <td><%= usuarios.getString("idUsuario") %></td>
+                        <td><%= usuarios.getString("idPerfil") %></td>
                         <td><%= usuarios.getString("nombres") %></td>
                         <td><%= usuarios.getString("apellidos") %></td>                        
                         <td><%= usuarios.getString("correo") %></td>
-                        <td><%= usuarios.getString("password") %></td>
+                        <td><%= usuarios.getString("celular") %></td>
                         <td class="links">
-                            <a href="CargarRutina?opc=edit&idx=<%= usuarios.getString("idUsuario") %>">Editar</a>
-                            <a href="CargarRutina?opc=delete&idx=<%= usuarios.getString("idUsuario") %>">Borrar</a>
+                            <a href="CargarUsuarios?opc=edit&idx=<%= usuarios.getString("idUsuario") %>">Editar</a>
+                            <a href="CargarUsuarios?opc=delete&idx=<%= usuarios.getString("idUsuario") %>">Borrar</a>
                         </td>
                     </tr>
                 <% }%>
@@ -49,16 +53,18 @@
                     <!--<td colspan="5" class="links"><a href="insertar_contacto.jsp">Agregar</a></td>-->
             </tr>
             <tr>
-                <thead class="thead-dark">
-                    <th scope="col">Ejercicio</th>
-                    <th scope="col">Descripcion</th>
-                    <th scope="col">Repeticiones</th>
-                    <th scope="col">Peso</th>
+                <thead class="thead-dark">                     
+                    <th scope="col">#Usuario</th>
+                    <th scope="col">#Perfil</th>
+                    <th scope="col">Nombres</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Celular</th>
                     <th scope="col">Acciones</th>
                 </thead>
             </tr>
         </table>
-        
+        <td colspan="5" class="links"><a href="registro.jsp">Agregar</a></td>
         </div>
     </body>
 </html>

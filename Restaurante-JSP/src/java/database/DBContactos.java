@@ -70,7 +70,7 @@ public class DBContactos {
             pstm.setString(3, c.getNombre());
             pstm.setString(4, c.getApellido());
             pstm.setString(5, c.getCorreo());
-            pstm.setInt(6, c.getCelular());
+            pstm.setString(6, c.getCelular());
             pstm.setString(7, c.getPassword());
 
             pstm.executeUpdate();
@@ -83,21 +83,22 @@ public class DBContactos {
     }
 
     public void actualizarContacto(Usuario c) {
-
+        
         try {
-            PreparedStatement pstm = cn.getConexion().prepareStatement("update usuario set "
-                    + " nombres = ? , "
-                    + " apellidos = ? ,"
-                    + " correo = ? , "
-                    + " celular = ? ,"
-                    + " password = ? "     
+            PreparedStatement pstm = cn.getConexion().prepareStatement("update usuario set nombres = ?, "
+                    + " apellidos = ?,"
+                    + " correo = ?,"
+                    + " celular = ?,"
+                    + " password = ?,"   
+                    + " idPerfil = ?"
                     + " where idUsuario = ?");
             pstm.setString(1, c.getNombre());
             pstm.setString(2, c.getApellido());
             pstm.setString(3, c.getCorreo());
-            pstm.setInt(4, c.getCelular());
+            pstm.setString(4, c.getCelular());
             pstm.setString(5, c.getPassword());
-            pstm.setInt(6, c.getId());
+            pstm.setInt(6, c.getIdPerfil());
+            pstm.setInt(7, c.getId());
 
             pstm.executeUpdate();
 
