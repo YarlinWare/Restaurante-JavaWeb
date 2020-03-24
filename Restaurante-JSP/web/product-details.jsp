@@ -60,10 +60,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
-            <li class="nav-item active px-lg-4">
+            <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="index.jsp">Inicio</a>
             </li>
-            <li class="nav-item px-lg-4">
+            <li class="nav-item active px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="menu.jsp">Menu</a>
             </li>
             <li class="nav-item px-lg-4">
@@ -76,68 +76,87 @@
               <a class="nav-link text-uppercase text-expanded" href="contact.html">Contacto</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="blog.html">Blog</a>
+              <a class="nav-link text-uppercase text-expanded" href="admin.html">Admin</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-	
-	<section>
+    
+    <div class="container">
+         <div class="card mb-3 mt-4" >
+                <div class="row ">
+                  <div class="col-md-6 col-xs-12 cardImg">
+                    <img src="<%= producto.getUrl_img()%>" alt="" width="300px"/>
+                  </div>
+                  <div class="col-md-6 col-xs-12">
+                      <div class="tarjeta-Descripcion">
+                          <div class="card-body">
+                            <h5 class="card-title"><%= producto.getNombre()%></h5>
+                            <p>Web ID: <%= producto.getIdProducto()%></p>
+                            <form action="agregarproducto" method="post">
+                            <label>Cantidad</label>
+                              <input type="hidden" value="<%= producto.getIdProducto()%>" name="idProducto">
+                              <input type="text" value="1" id="txt-cantidad" name="cantidad"/>
+                            <p class="card-text"><%= producto.getDescripcion()%></p>
+                            <p><b>Disponibilidad:</b>
+                                    <span <%if (producto.getCantidad()>=10) %> > En Stock </span> 
+                                    <span <%if (producto.getCantidad()<10 && producto.getCantidad()>0) %> > Bajo Stock</span>
+                                    <span <%if (producto.getCantidad()<=0) %> > Sin Stock</span>
+                            </p>
+                            <p class="card-text"><small class="text-muted">(<%= producto.getCantidad() %> unidades disponibles)</small></p>
+                            <p><b>Precio:</b>
+                                <span>$<%=(producto.getValor()) %> </span>                                    
+                            </p>
+                            <br>
+                              <button type="submit" class="btn btn-fefault cart">
+                                      <i class="fa fa-shopping-cart"></i>
+                                      Add to cart
+                              </button>
+                            </form>
+                          </div> 
+                      </div>
+                   
+                  </div>
+                </div>
+              </div>
+                        
+    </div>
+           
+    <section>           
+            
+            
 		<div class="container">
 			<div class="row">
-	
-				<div class="col-sm-9 padding-right">
-					<div class="product-details"><!--product-details-->
-						<div class="col-sm-5">
-							<div class="view-product">
-                                                            <img src="<%= producto.getUrl_img()%>" alt="" />
-								<h3>ZOOM</h3>
-							</div>
-							<div id="similar-product" class="carousel slide" data-ride="carousel">
-								
-								  <!-- Wrapper for slides -->
-								   
-
-								  <!-- Controls -->
-								  <a class="left item-control" href="#similar-product" data-slide="prev">
-									<i class="fa fa-angle-left"></i>
-								  </a>
-								  <a class="right item-control" href="#similar-product" data-slide="next">
-									<i class="fa fa-angle-right"></i>
-								  </a>
-							</div>
-
-						</div>
-						<div class="col-sm-7">
-							<div class="product-information"><!--/product-information-->
-								<img src="images/product-details/new.jpg" class="newarrival" alt="" />
-								<h2><%= producto.getNombre()%></h2>
-								<p>Web ID: <%= producto.getIdProducto()%></p>
-								<img src="images/product-details/rating.png" alt="" />
-                                                                <form action="agregarproducto" method="post">
-								<span>
-									<span>US $<%= producto.getValor()%></span>
-									<label>Quantity:</label>
-                                                                        <input type="hidden" value="<%= producto.getIdProducto()%>" name="idproducto">
-                                                                        <input type="text" value="1" id="txt-cantidad" name="cantidad"/>
-									<button type="submit" class="btn btn-fefault cart">
-										<i class="fa fa-shopping-cart"></i>
-										Add to cart
-									</button>
-								</span>
-                                                                </form>
-								<p><b>Availability:</b> In Stock</p>
-								<p><b>Condition:</b> New</p>
-								<p><b>Brand:</b> E-SHOPPER</p>
-								<a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a>
-							</div><!--/product-information-->
-						</div>
-					</div><!--/product-details-->
-                                    </div>
-                                </div>
+                            <div class="col-sm-7">
+                                    <div class="product-information"><!--/product-information-->
+                                            <!--<img src="images/product-details/new.jpg" class="newarrival" alt="" />
+                                            <h2><%= producto.getNombre()%></h2>
+                                            <p>Web ID: <%= producto.getIdProducto()%></p>
+                                            <img src="images/product-details/rating.png" alt="" />
+                                            <form action="agregarproducto" method="post">
+                                            <span>
+                                                    <span>US $<%= producto.getValor()%></span>
+                                                    <label>Quantity:</label>
+                                                    <input type="hidden" value="<%= producto.getIdProducto()%>" name="idproducto">
+                                                    <input type="text" value="1" id="txt-cantidad" name="cantidad"/>
+                                                    <button type="submit" class="btn btn-fefault cart">
+                                                            <i class="fa fa-shopping-cart"></i>
+                                                            Add to cart
+                                                    </button>
+                                            </span>
+                                            </form>
+                                            <p><b>Availability:</b> In Stock</p>
+                                            <p><b>Condition:</b> New</p>
+                                            <p><b>Brand:</b> E-SHOPPER</p>
+                                            <a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a>-->
+                                    </div><!--/product-information-->
                             </div>
-                        </section>
+                    </div><!--/product-details-->
+                </div>
+            </div>
+        </div>
+    </section>
                                         
 
     <!-- Pié de página -->

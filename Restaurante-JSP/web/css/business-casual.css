@@ -320,3 +320,15 @@ a.iconosCompra {
     color:#FFFFFF;
     text-decoration: none;
 }
+.tarjeta-Descripcion{
+    padding-left: 20px;
+}
+.cardImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart_items{
+    background: #FFFFFF;
+}

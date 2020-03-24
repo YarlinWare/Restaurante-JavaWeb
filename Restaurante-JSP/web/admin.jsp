@@ -1,12 +1,16 @@
 <%-- 
-    Document   : login
-    Created on : 26/10/2019, 02:54:15 PM
-    Author     : rapterpakfa
+    Document   : index.jsp
+    Created on : 15-mar-2020, 16.14.30
+    Author     : ASUS
 --%>
+<%@page import="java.util.List"%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="database.DBContactos"%>
+<%@page import="usuario.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
   <head>
 
@@ -31,18 +35,22 @@
   </head>
 
   <body>
-    <!-- Menu acceso -->
-      <nav class="navbar navbar-expand-lg navbar-dark row justify-content-between menuAcceso">
+      <!-- Menu acceso -->
+      <nav class="navbar navbar-expand-lg navbar-dark row justify-content-between">
         <a href="index.jsp" class="navbar-brand pl-3 ">
           <img src="img/logo.png" width="auto" height="40" alt="">
         </a>
-
+        <div>
+            <a href="checkout.jsp"><i class="fa fa-crosshairs iconosCompra"></i>Checkout</a>
+            <a href="cart.jsp"><i class="fa fa-shopping-cart iconosCompra"></i>Cart</a>
+        </div>
         <div class="d-flex aling-item-end pr-3 btn-ingreso-registro">
           <a href="login.jsp" class="btn btn-ingreso nav-link text-uppercase text-expanded">Ingresar</a>
           <a href="registro.jsp" class="btn btn-info nav-link text-uppercase text-expanded">Registrar</a>
         </div>
       </nav>
     <!-- Menu acceso -->
+    
     <h1 class="site-heading text-center text-white d-none d-lg-block">
       <span class="site-heading-upper text-primary mb-3">Restaurante</span>
       <span class="site-heading-lower">Tus Delicias</span>
@@ -51,7 +59,7 @@
     <!-- Navegación -->
     <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
       <div class="container">
-        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="index.jsp">La Caffettiera</a>
+        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="index.html">La Caffettiera</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -72,7 +80,7 @@
             <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="contact.html">Contacto</a>
             </li>
-            <li class="nav-item px-lg-4">
+            <li class="nav-item active px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="admin.html">Admin</a>
             </li>
           </ul>
@@ -80,44 +88,58 @@
       </div>
     </nav>
 
+    <!-- Mensaje -->
+    <section class="page-section cta">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-9 mx-auto ">
+            <div class="cta-inner text-center rounded">
+              <h2 class="section-heading mb-4">
+                <span class="section-heading-upper">Centro de</span>
+                <span class="section-heading-lower">Administración</span>
+              </h2>
+              <p class="mb-0">Administra el inventario, usuarios y pagos entre otros.</p>
+            </div>
+          </div>
+            <div class="row col-xl-12 mx-auto mt-5 justify-content-between">
+                <div class="card bg-light mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Usuarios</div>
+                    <div class="card-body">
+                      <h5 class="card-title">Gestión de usuarios</h5>
+                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                      <a class="btn btn-primary" href="Listusuarios.jsp" role="button">Administrar</a>
+                    </div>
+                </div>
+                <div class="card bg-light mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Productos</div>
+                    <div class="card-body">
+                      <h5 class="card-title">Gestión de productos</h5>
+                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                      <a class="btn btn-primary" href="Listproductos.jsp" role="button">Administrar</a>
+                    </div>
+                </div>
+                <div class="card bg-light mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Facturas</div>
+                    <div class="card-body">
+                      <h5 class="card-title">Gestión de facturas</h5>
+                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                      <a class="btn btn-primary" href="Listfacturas.jsp" role="button">Administrar</a>
+                    </div>
+                </div>
+                <!--<div class="card bg-light mb-3" style="max-width: 15rem;">
+                    <div class="card-header">Otros ajustes</div>
+                    <div class="card-body">
+                      <h5 class="card-title">Gestión de ajustes</h5>
+                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    </div>
+                </div>-->
+            </div>
+            
+        </div>
+      </div>
+    </section>
 
-  <!-- Contenido -->  
-  <div class="container pt-5 pb-5">
-    <div class="row justify-content-center">
-      <div class=" formulario-ingreso">
-        <form class="form" method="POST" action="j_security_check">
-          <div class="contain_form">
-            <fieldset class="login_fieldset">
-              
-              <h3 class="text-center">Las Delicias</h3>
-             
-              <hr>
-              <div class="form-group columns_div">
-                <label>Usuario</label>              
-                <input type="text" class="form-control" id="j_username" name="j_username" placeholder="Usuario">
-                <label>Password</label>
-                <input type="password" class="form-control" id="j_password" name="j_password" placeholder="password">
-
-                <div class="row pt-3">
-                  <div class="col-6">
-                    <a href="#"><span>Registrar</span></a>
-                  </div> 
-                  <div class="col-6">
-                    <input type="submit" class="btn btn-info" value="Ingresar">
-                  </div>            
-                </div>  
-                <br>
-                <a href="#" class="forget">Olvido su contraseña?</a>
-              </div>              
-            </fieldset> 
-          </div>  
-        </form>
-      </div>      
-    </div>    
-  </div>
-  
-
-  <!-- Pié de página -->
+    <!-- Pié de página -->
     <footer class="footer text-faded text-center py-5">
       <div class="container">
         <p class="m-0">

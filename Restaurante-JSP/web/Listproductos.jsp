@@ -1,13 +1,13 @@
 <%-- 
-    Document   : index.jsp
-    Created on : 15-mar-2020, 16.14.30
+    Document   : Listproductos
+    Created on : 23-mar-2020, 20.06.14
     Author     : ASUS
 --%>
 <%@page import="java.util.List"%>
 
 <%@page import="java.sql.ResultSet"%>
-<%@page import="database.DBContactos"%>
-<%@page import="usuario.Usuario"%>
+<%@page import="database.DBProductos"%>
+<%@page import="logica.productos.Productos"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,31 +17,30 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-        
     <%  
-        DBContactos dbr = new DBContactos();
-        ResultSet usuarios = dbr.getContactos();  
+        DBProductos dbr = new DBProductos();
+        ResultSet productos = dbr.getMenu();  
     %>
     <div class="container">
     <table  class="mt-5 table table-responsive-md">
             <tr>
                 <thead class="thead-dark">
-                    <th scope="col">Ejercicio</th>
+                    <th scope="col">Nombre</th>
                     <th scope="col">Descripcion</th>
-                    <th scope="col">Repeticiones</th>
-                    <th scope="col">Peso</th>
+                    <th scope="col">Valor</th>
+                    <th scope="col">Cantidad</th>
                     <th scope="col">Acciones</th>
                 </thead>
             </tr>
-                <% while (usuarios.next()){ %>
+                <% while (productos.next()){ %>
                     <tr>
-                        <td><%= usuarios.getString("nombres") %></td>
-                        <td><%= usuarios.getString("apellidos") %></td>                        
-                        <td><%= usuarios.getString("correo") %></td>
-                        <td><%= usuarios.getString("password") %></td>
+                        <td><%= productos.getString("nombre") %></td>
+                        <td><%= productos.getString("descripcion") %></td>                        
+                        <td><%= productos.getString("valor") %></td>
+                        <td><%= productos.getString("cantidad") %></td>
                         <td class="links">
-                            <a href="CargarRutina?opc=edit&idx=<%= usuarios.getString("idUsuario") %>">Editar</a>
-                            <a href="CargarRutina?opc=delete&idx=<%= usuarios.getString("idUsuario") %>">Borrar</a>
+                            <a href="CargarRutina?opc=edit&idx=<%= productos.getString("idProducto") %>">Editar</a>
+                            <a href="CargarRutina?opc=delete&idx=<%= productos.getString("idProducto") %>">Borrar</a>
                         </td>
                     </tr>
                 <% }%>
@@ -50,10 +49,10 @@
             </tr>
             <tr>
                 <thead class="thead-dark">
-                    <th scope="col">Ejercicio</th>
+                    <th scope="col">Nombre</th>
                     <th scope="col">Descripcion</th>
-                    <th scope="col">Repeticiones</th>
-                    <th scope="col">Peso</th>
+                    <th scope="col">Valor</th>
+                    <th scope="col">Cantidad</th>
                     <th scope="col">Acciones</th>
                 </thead>
             </tr>

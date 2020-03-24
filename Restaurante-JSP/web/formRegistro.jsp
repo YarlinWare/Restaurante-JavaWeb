@@ -58,7 +58,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
-            <li class="nav-item active px-lg-4">
+            <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="index.jsp">Inicio</a>
             </li>
             <li class="nav-item px-lg-4">
@@ -74,7 +74,7 @@
               <a class="nav-link text-uppercase text-expanded" href="contact.html">Contacto</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="blog.html">Blog</a>
+              <a class="nav-link text-uppercase text-expanded" href="admin.html">Admin</a>
             </li>
           </ul>
         </div>
