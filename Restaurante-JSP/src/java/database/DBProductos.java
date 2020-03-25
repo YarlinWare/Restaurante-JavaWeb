@@ -96,19 +96,19 @@ public class DBProductos {
             System.out.println(p.getValor());
             System.out.println(p.getIdCategoria());
             System.out.println(p.getCantidad());
-            PreparedStatement pstm = cn.getConexion().prepareStatement("update productos set idProducto = ?, "
-                    + " nombre = ?,"
+            PreparedStatement pstm = cn.getConexion().prepareStatement("update productos set nombre = ?, "
                     + " descripcion = ?, "
                     + " valor = ?,"
                     + " idCategoria = ?,"
                     + " cantidad = ? "
                     + " where idProducto = ?");
-            pstm.setInt(1, p.getIdProducto());
-            pstm.setString(2, p.getNombre());            
-            pstm.setString(3, p.getDescripcion());
-            pstm.setInt(4, p.getValor());
-            pstm.setInt(5, p.getIdCategoria());
-            pstm.setInt(6, p.getCantidad());
+           
+            pstm.setString(1, p.getNombre());            
+            pstm.setString(2, p.getDescripcion());
+            pstm.setInt(3, p.getValor());
+            pstm.setInt(4, p.getIdCategoria());
+            pstm.setInt(5, p.getCantidad());
+             pstm.setInt(6, p.getIdProducto());
             
             
 

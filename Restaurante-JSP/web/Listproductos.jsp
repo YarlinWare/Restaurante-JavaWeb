@@ -95,7 +95,7 @@
         
         
         
-    <table  class="mt-5 table table-responsive-md">
+    <table  class="table table-striped table-dark">
             <tr>
                 <thead class="thead-dark">
                     <th scope="col">Nombre</th>
