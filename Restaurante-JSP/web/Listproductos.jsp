@@ -90,11 +90,7 @@
     %>
     <div class="container">
         
-        
-       
-        
-        
-        
+                
     <table  class="table table-striped table-dark">
             <tr>
                 <thead class="thead-dark">
@@ -117,9 +113,7 @@
                         </td>
                     </tr>
                 <% }%>
-                <tr>
-                    <!--<td colspan="5" class="links"><a href="insertar_contacto.jsp">Agregar</a></td>-->
-            </tr>
+                
             <tr>
                 <thead class="thead-dark">
                     <th scope="col">Nombre</th>
@@ -128,6 +122,9 @@
                     <th scope="col">Cantidad</th>
                     <th scope="col">Acciones</th>
                 </thead>
+            </tr>
+            <tr>
+                <td colspan="5" class="links"><a href="InsertarProducto.jsp" class="btn btn-secondary btn-lg btn-block" role="button" aria-pressed="true">Agregar Nuevos Productos</a></td>
             </tr>
         </table>
         

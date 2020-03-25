@@ -1,11 +1,10 @@
 <%-- 
-    Document   : EditarProducto
-    Created on : 24/03/2020, 05:21:24 PM
+    Document   : InsertarProducto
+    Created on : 25/03/2020, 03:55:38 PM
     Author     : eandr
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="logica.productos.Productos"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,8 +13,9 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Editor | Restaurante</title>
-         <!-- Bootstrap -->
+        <title>Nuevo | Producto</title>
+        
+        <!-- Bootstrap -->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Fuentes -->
@@ -26,9 +26,10 @@
         <!-- Estilos -->
         <link href="css/business-casual.css" rel="stylesheet">
         <link href="css/menu.css" rel="stylesheet">
+        
     </head>
     <body>
-              <!-- Menu acceso -->
+          <!-- Menu acceso -->
       <nav class="navbar navbar-expand-lg navbar-dark row justify-content-between menuAcceso">
         <a href="index.jsp" class="navbar-brand pl-3 ">
           <img src="img/logo.png" width="auto" height="40" alt="">
@@ -78,32 +79,36 @@
     </nav>
      
      <div class="container">
-     
-        <form id="frmActualizarProducto" action="ActualizarProducto" method="POST">
-             <input type="hidden" id="txtId" name="txtId" value="<%= ((Productos)session.getAttribute("productos")).getIdProducto()%>">
-        <table  class="table table-striped table-dark">
+        <form id="frmInsertarProducto" action="Insertar_Productos" method="POST">
+        <table class="table table-striped table-dark">
+            
+             <tr>
+                <thead class="thead-dark">
+                <th scope="col" style="text-align: center">INGRESE EL NUEVO PRODUCTO</th>                    
+                </thead>
+            </tr>
+
             <tr>
-                <td>Nombre</td>
-                <td><input type="text" id="txtNombre" name="txtNombre" value="<%= ((Productos)session.getAttribute("productos")).getNombre() %>"></td>
+                <td style="text-align: center">Nombre</td>
+                <td><input type="text" id="txtNombre" name="txtNombre"></td>
             </tr>
             <tr>
-                <td>Descripcion</td>
-                <td><input type="text" id="txtDescripcion" name="txtDescripcion" value="<%= ((Productos)session.getAttribute("productos")).getDescripcion()%>"></td>
+                <td style="text-align: center">Descripcion</td>
+                <td><input type="text" id="txtDescripcion" name="txtDescripcion"></td>
             </tr>
             <tr>
-                <td>Valor</td>
-                <td><input type="text" id="txtValor" name="txtValor" value="<%= ((Productos)session.getAttribute("productos")).getValor()%>"></td>
+                <td style="text-align: center">Valor</td>
+                <td><input type="text" id="txtValor" name="txtValor"></td>
             </tr>
             <tr>
-                <td>Categoria</td>
-                <td><input type="text" id="txtCategoria" name="txtCategoria" value="<%= ((Productos)session.getAttribute("productos")).getIdCategoria()%>"></td>
+                <td style="text-align: center">Id Categoria</td>
+                <td><input type="text" id="txtCategoria" name="txtCategoria"></td>
             </tr>
             <tr>
-                <td>Cantidad</td>
-                <td><input type="text" id="txtCantidad" name="txtCantidad" value="<%= ((Productos)session.getAttribute("productos")).getCantidad()%>"></td>
+                <td style="text-align: center">Cantidad</td>
+                <td><input type="text" id="txtCantidad" name="txtCantidad"></td>
             </tr>
             
-         
             <tr>
                 <td colspan="2"><input type="button" value="Aceptar" onclick="submit();"></td>
             </tr>
