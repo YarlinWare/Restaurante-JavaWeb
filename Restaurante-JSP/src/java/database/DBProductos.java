@@ -87,23 +87,30 @@ public class DBProductos {
 
     }
 
-    public void actualizarMenu(Productos m) {
+    public void actualizarMenu(Productos p) {
 
         try {
-            PreparedStatement pstm = cn.getConexion().prepareStatement("update contactos set con_nombre = ?, "
-                    + " con_apellido = ?,"
-                    + " con_tipo_usuario = ?, "
-                    + " con_telefono_domicilio = ?,"
-                    + " con_telefono_oficina = ?,"
-                    + " con_celular = ?,"
-                    + " con_correo = ?,"
-                    + " con_direccion_residencia = ?,"
-                    + " con_direccion_trabajo = ? "
-                    + " where con_id = ?");
-            pstm.setString(1, m.getNombre());            
-            pstm.setString(2, m.getDescripcion());
-            pstm.setInt(3, m.getIdProducto());
-            pstm.setInt(4, m.getValor());
+            System.out.println(p.getNombre());
+            System.out.println(p.getIdProducto());
+            System.out.println(p.getDescripcion());
+            System.out.println(p.getValor());
+            System.out.println(p.getIdCategoria());
+            System.out.println(p.getCantidad());
+            PreparedStatement pstm = cn.getConexion().prepareStatement("update productos set idProducto = ?, "
+                    + " nombre = ?,"
+                    + " descripcion = ?, "
+                    + " valor = ?,"
+                    + " idCategoria = ?,"
+                    + " cantidad = ? "
+                    + " where idProducto = ?");
+            pstm.setInt(1, p.getIdProducto());
+            pstm.setString(2, p.getNombre());            
+            pstm.setString(3, p.getDescripcion());
+            pstm.setInt(4, p.getValor());
+            pstm.setInt(5, p.getIdCategoria());
+            pstm.setInt(6, p.getCantidad());
+            
+            
 
             pstm.executeUpdate();
 
