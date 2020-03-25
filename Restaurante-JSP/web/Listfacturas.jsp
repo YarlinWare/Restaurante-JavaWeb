@@ -3,12 +3,10 @@
     Created on : 15-mar-2020, 16.14.30
     Author     : ASUS
 --%>
-<%@page import="database.DBFacturas"%>
 <%@page import="java.util.List"%>
-
 <%@page import="java.sql.ResultSet"%>
-<%@page import="database.DBContactos"%>
-<%@page import="usuario.Usuario"%>
+<%@page import="database.DBFacturas"%>
+<%@page import="logica.facturas.Facturas"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
@@ -66,7 +64,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
-            <li class="nav-item active px-lg-4">
+            <li class="nav-item  px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="index.jsp">Inicio</a>
             </li>
             <li class="nav-item px-lg-4">
@@ -81,7 +79,7 @@
             <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="contact.html">Contacto</a>
             </li>
-            <li class="nav-item px-lg-4">
+            <li class="nav-item active px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="admin.jsp">Admin</a>
             </li>
           </ul>
@@ -90,12 +88,12 @@
     </nav>
 
         
-    <%  DBFacturas dbr = new DBFacturas();
+    <%  
+        DBFacturas dbr = new DBFacturas();
         ResultSet facturas = dbr.getFacturas();  
-       
     %>
     <div class="container">
-    <table  class="mt-5 table table-responsive-md">
+    <table  class="mt-5 table table-responsive-md  table-striped table-dark">
             <tr>
                 <thead class="thead-dark">
                     <th scope="col">#Factura</th>
@@ -118,8 +116,8 @@
                         <td><%= facturas.getString("propina") %></td>     
                         <td><%= facturas.getString("estado") %></td>
                         <td class="links">
-                            <a href="CargarFactura?opc=edit&idx=<%= facturas.getString("idFactura") %>">Editar</a>
-                            <a href="CargarFactura?opc=delete&idx=<%= facturas.getString("idFactura") %>">Borrar</a>
+                            <a href="CargarFacturas?opc=edit&idx=<%= facturas.getString("idFactura") %>">Editar</a>
+                            <a href="CargarFacturas?opc=delete&idx=<%= facturas.getString("idFactura") %>">Borrar</a>
                         </td>
                     </tr>
                 <% }%>
@@ -140,8 +138,9 @@
                 </thead>
             </tr>
         </table>
+        <td colspan="5" class="links"><a class="btn btn-success disabled" href="">Agregar</a></td>
         
-        </div>
+    </div> <br><br>
     <!-- Pié de página -->
     <footer class="footer text-faded text-center py-5">
       <div class="container">

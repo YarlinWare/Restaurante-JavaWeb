@@ -23,14 +23,16 @@ public class DBFacturas {
     }
 
     public ResultSet getFacturasById(int id) throws SQLException {
-        PreparedStatement pstm = cn.getConexion().prepareStatement("SELECT idProducto, "
-                + " nombre, "
-                + " descripcion, "
-                + " valor, "
-                + " idCategoria, "
-                + " url_img, "
-                + " cantidad "
-                + " FROM productos "
+        PreparedStatement pstm = cn.getConexion().prepareStatement("SELECT idFactura, "
+                + " idPedido, "
+                + " fecha, "
+                + " valorNeto, "
+                + " valorTotal, "
+                + " propina, "                
+                + " estado, "
+                + " pago, "
+                + " iva "
+                + " FROM factura "
                 + " WHERE idFactura = ? ");
         pstm.setInt(1, id);
 
@@ -57,28 +59,29 @@ public class DBFacturas {
                 + " iva "
                 + " FROM factura "
                 + " ORDER BY idFactura, fecha ");
-
-
         ResultSet res = pstm.executeQuery();
         return res;
     }
 
-    public void insertarFacturas(Productos m) {
+    public void insertarFacturas(Facturas f) {
         try {
-            PreparedStatement pstm = cn.getConexion().prepareStatement("insert into contactos (con_nombre, "
-                    + " con_apellido,"
-                    + " con_tipo_usuario, "
-                    + " con_telefono_domicilio,"
-                    + " con_telefono_oficina,"
-                    + " con_celular,"
-                    + " con_correo,"
-                    + " con_direccion_residencia,"
-                    + " con_direccion_trabajo) "
+            PreparedStatement pstm = cn.getConexion().prepareStatement("insert into contactos (idPedido, "
+                    + " fecha,"
+                    + " valorNeto, "
+                    + " valorTotal,"
+                    + " propina,"
+                    + " estado,"
+                    + " pago,"
+                    + " iva,"
                     + " values(?,?,?,?,?,?,?,?)");
-            pstm.setString(1, m.getNombre());
-            pstm.setString(2, m.getDescripcion());
-            pstm.setInt(3, m.getIdProducto());
-            pstm.setInt(4, m.getValor());;
+            pstm.setInt(1, f.getIdPedido());
+            pstm.setString(2, f.getFecha());
+            pstm.setDouble(3, f.getNeto());
+            pstm.setDouble(4, f.getTotal());
+            pstm.setDouble(5, f.getPropina());
+            pstm.setBoolean(6, f.isEstado());
+            pstm.setBoolean(7, f.isPago());
+            pstm.setDouble(8, f.getIVA());
 
             pstm.executeUpdate();
 
@@ -92,7 +95,7 @@ public class DBFacturas {
     public void actualizarFacturas(Facturas f) {
 
         try {
-            PreparedStatement pstm = cn.getConexion().prepareStatement("update productos set idProducto = ?, "
+            PreparedStatement pstm = cn.getConexion().prepareStatement("update factura set pago = ?, "
                     + " nombre = ?,"
                     + " descripcion = ?, "
                     + " valor = ?,"

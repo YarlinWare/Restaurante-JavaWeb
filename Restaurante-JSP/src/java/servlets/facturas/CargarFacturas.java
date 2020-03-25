@@ -56,7 +56,7 @@ public class CargarFacturas extends HttpServlet {
                 f.setPago(res.getBoolean("pago"));
             }            
             if(opc.equals("edit")){
-                request.getSession().setAttribute("factura", f);
+                request.getSession().setAttribute("facturas", f);
                 response.sendRedirect("Listfacturas.jsp");
             }
             if(opc.equals("delete")){

@@ -94,7 +94,7 @@
         ResultSet usuarios = dbr.getContactos();  
     %>
     <div class="container">
-    <table  class="mt-5 table table-responsive-md">
+    <table  class="mt-5 table table-responsive-md  table-striped table-dark">
             <tr>
                 <thead class="thead-dark">                    
                     <th scope="col">#Usuario</th>
@@ -135,8 +135,8 @@
                 </thead>
             </tr>
         </table>
-        <td colspan="5" class="links"><a href="registro.jsp">Agregar</a></td>
-        </div>
+        <td colspan="5" class="links"><a class="btn btn-success" href="registro.jsp">Agregar</a></td>
+        </div><br><br>
     <!-- Pié de página -->
     <footer class="footer text-faded text-center py-5">
       <div class="container">
