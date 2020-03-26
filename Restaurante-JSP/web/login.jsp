@@ -85,18 +85,18 @@
   <div class="container pt-5 pb-5">
     <div class="row justify-content-center">
       <div class=" formulario-ingreso">
-        <form class="form" method="POST" action="j_security_check">
+        <form class="form" method="POST" action="InicioSesion">
           <div class="contain_form">
             <fieldset class="login_fieldset">
               
-              <h3 class="text-center">Las Delicias</h3>
+              <h3 class="text-center">Tus Delicias</h3>
              
               <hr>
               <div class="form-group columns_div">
                 <label>Usuario</label>              
-                <input type="text" class="form-control" id="j_username" name="j_username" placeholder="Usuario">
+                <input type="text" class="form-control" id="username" name="username" placeholder="Usuario">
                 <label>Password</label>
-                <input type="password" class="form-control" id="j_password" name="j_password" placeholder="password">
+                <input type="password" class="form-control" id="password" name="password" placeholder="password">
 
                 <div class="row pt-3">
                   <div class="col-6">
@@ -145,7 +145,7 @@
         	<a href="sample.html" class="link">Aviso legal</a> ·
         	<a href="sample.html" class="link">Cookies</a>
 		</p>
-        <p class="m-0 mbt1">&copy; Las Delicias 2020</p>
+        <p class="m-0 mbt1">&copy; Tus Delicias 2020</p>
       </div>
 	</footer>
 
