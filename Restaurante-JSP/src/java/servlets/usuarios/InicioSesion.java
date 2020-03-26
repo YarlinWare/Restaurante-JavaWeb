@@ -42,7 +42,7 @@ public class InicioSesion extends HttpServlet {
         if(ctrl.autenticacion(usuario, contraseña)){
             response.sendRedirect("admin.jsp");
         }else{
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("login.jsp");            
         }
        
     }
