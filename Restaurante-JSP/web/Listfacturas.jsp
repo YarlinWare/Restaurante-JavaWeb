@@ -40,7 +40,6 @@
           <img src="img/logo.png" width="auto" height="40" alt="">
         </a>
         <div>
-            <a href="checkout.jsp"><i class="fa fa-crosshairs iconosCompra"></i>Checkout</a>
             <a href="cart.jsp"><i class="fa fa-shopping-cart iconosCompra"></i>Cart</a>
         </div>
         <div class="d-flex aling-item-end pr-3 btn-ingreso-registro">
@@ -64,21 +63,21 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
-            <li class="nav-item  px-lg-4">
+            <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="index.jsp">Inicio</a>
             </li>
             <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="menu.jsp">Menu</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="services.html">Servicios</a>
+              <a class="nav-link text-uppercase text-expanded" href="services.jsp">Servicios</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="store.html">Visítanos</a>
+              <a class="nav-link text-uppercase text-expanded" href="store.jsp">Visítanos</a>
             </li>
-            <li class="nav-item px-lg-4">
+            <!--<li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="contact.html">Contacto</a>
-            </li>
+            </li>-->
             <li class="nav-item active px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="admin.jsp">Admin</a>
             </li>

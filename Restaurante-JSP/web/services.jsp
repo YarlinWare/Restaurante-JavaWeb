@@ -1,12 +1,12 @@
 <%-- 
-    Document   : login
-    Created on : 26/10/2019, 02:54:15 PM
-    Author     : rapterpakfa
+    Document   : services
+    Created on : 25-mar-2020, 22.45.39
+    Author     : ASUS
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
   <head>
 
@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Inicio | Restaurante</title>
+    <title>Servicios | Restaurante</title>
 
     <!-- Bootstrap -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -31,7 +31,7 @@
   </head>
 
   <body>
-    <!-- Menu acceso -->
+      <!-- Menu acceso -->
       <nav class="navbar navbar-expand-lg navbar-dark row justify-content-between">
         <a href="index.jsp" class="navbar-brand pl-3 ">
           <img src="img/logo.png" width="auto" height="40" alt="">
@@ -83,43 +83,8 @@
     </nav>
 
 
-  <!-- Contenido -->  
-  <div class="container pt-5 pb-5">
-    <div class="row justify-content-center">
-      <div class=" formulario-ingreso">
-        <form class="form" method="POST" action="j_security_check">
-          <div class="contain_form">
-            <fieldset class="login_fieldset">
-              
-              <h3 class="text-center">Las Delicias</h3>
-             
-              <hr>
-              <div class="form-group columns_div">
-                <label>Usuario</label>              
-                <input type="text" class="form-control" id="j_username" name="j_username" placeholder="Usuario">
-                <label>Password</label>
-                <input type="password" class="form-control" id="j_password" name="j_password" placeholder="password">
 
-                <div class="row pt-3">
-                  <div class="col-6">
-                    <a href="#"><span>Registrar</span></a>
-                  </div> 
-                  <div class="col-6">
-                    <input type="submit" class="btn btn-info" value="Ingresar">
-                  </div>            
-                </div>  
-                <br>
-                <a href="#" class="forget">Olvido su contraseña?</a>
-              </div>              
-            </fieldset> 
-          </div>  
-        </form>
-      </div>      
-    </div>    
-  </div>
-  
-
-  <!-- Pié de página -->
+    <!-- Pié de página -->
     <footer class="footer text-faded text-center py-5">
       <div class="container">
         <p class="m-0">
@@ -158,4 +123,3 @@
   </body>
 
 </html>
-

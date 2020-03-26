@@ -1,12 +1,12 @@
 <%-- 
-    Document   : login
-    Created on : 26/10/2019, 02:54:15 PM
-    Author     : rapterpakfa
+    Document   : store.jsp
+    Created on : 25-mar-2020, 22.48.52
+    Author     : ASUS
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
   <head>
 
@@ -31,7 +31,7 @@
   </head>
 
   <body>
-    <!-- Menu acceso -->
+      <!-- Menu acceso -->
       <nav class="navbar navbar-expand-lg navbar-dark row justify-content-between">
         <a href="index.jsp" class="navbar-brand pl-3 ">
           <img src="img/logo.png" width="auto" height="40" alt="">
@@ -82,44 +82,51 @@
       </div>
     </nav>
 
-
-  <!-- Contenido -->  
-  <div class="container pt-5 pb-5">
-    <div class="row justify-content-center">
-      <div class=" formulario-ingreso">
-        <form class="form" method="POST" action="j_security_check">
-          <div class="contain_form">
-            <fieldset class="login_fieldset">
-              
-              <h3 class="text-center">Las Delicias</h3>
-             
-              <hr>
-              <div class="form-group columns_div">
-                <label>Usuario</label>              
-                <input type="text" class="form-control" id="j_username" name="j_username" placeholder="Usuario">
-                <label>Password</label>
-                <input type="password" class="form-control" id="j_password" name="j_password" placeholder="password">
-
-                <div class="row pt-3">
-                  <div class="col-6">
-                    <a href="#"><span>Registrar</span></a>
-                  </div> 
-                  <div class="col-6">
-                    <input type="submit" class="btn btn-info" value="Ingresar">
-                  </div>            
-                </div>  
+    <!-- contenido -->
+    <section class="page-section cta">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-9 mx-auto">
+            <div class="cta-inner text-center rounded">
+              <h2 class="section-heading mb-5">
+                <span class="section-heading-upper">Te esperamos</span>
+                <span class="section-heading-lower">Visítanos</span>
+              </h2>
+              <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
+                <li class="list-unstyled-item list-hours-item d-flex">
+                  Lunes a viernes
+                  <span class="ml-auto">7:00 a 20:00</span>
+                </li>
+                <li class="list-unstyled-item list-hours-item d-flex">
+                  Sábados
+                  <span class="ml-auto">9:00 a 17:00</span>
+                </li>
+                <li class="list-unstyled-item list-hours-item d-flex">
+                  Domingos
+                  <span class="ml-auto">Cerrado</span>
+                </li>
+              </ul>
+              <p class="address mb-5">
+                <em>
+                  <strong>Universidad Distrial Sede Ingeniería</strong>
+                  <br>
+                  Bogotá
+                </em>
+              </p>
+              <p class="mb-0">
+                <small>
+                  <em>Llámanos y pregunta</em>
+                </small>
                 <br>
-                <a href="#" class="forget">Olvido su contraseña?</a>
-              </div>              
-            </fieldset> 
-          </div>  
-        </form>
-      </div>      
-    </div>    
-  </div>
-  
+                (300) xxx-xxxx
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- Pié de página -->
+    <!-- Pié de página -->
     <footer class="footer text-faded text-center py-5">
       <div class="container">
         <p class="m-0">
@@ -156,6 +163,3 @@
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   </body>
-
-</html>
-
