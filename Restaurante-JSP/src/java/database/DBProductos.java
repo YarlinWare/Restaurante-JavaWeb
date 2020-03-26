@@ -63,20 +63,17 @@ public class DBProductos {
 
     public void insertarMenu(Productos m) {
         try {
-            PreparedStatement pstm = cn.getConexion().prepareStatement("insert into contactos (con_nombre, "
-                    + " con_apellido,"
-                    + " con_tipo_usuario, "
-                    + " con_telefono_domicilio,"
-                    + " con_telefono_oficina,"
-                    + " con_celular,"
-                    + " con_correo,"
-                    + " con_direccion_residencia,"
-                    + " con_direccion_trabajo) "
-                    + " values(?,?,?,?,?,?,?,?)");
+            PreparedStatement pstm = cn.getConexion().prepareStatement("insert into productos (nombre, "
+                    + " descripcion,"
+                    + " valor,"
+                    + " idCategoria,"
+                    + " cantidad)"
+                    + " values(?,?,?,?,?)");
             pstm.setString(1, m.getNombre());
             pstm.setString(2, m.getDescripcion());
-            pstm.setInt(3, m.getIdProducto());
-            pstm.setInt(4, m.getValor());;
+            pstm.setInt(3, m.getValor());
+            pstm.setInt(4, m.getIdCategoria());;
+            pstm.setInt(5, m.getCantidad());
 
             pstm.executeUpdate();
 
@@ -89,13 +86,7 @@ public class DBProductos {
 
     public void actualizarMenu(Productos p) {
 
-        try {
-            System.out.println(p.getNombre());
-            System.out.println(p.getIdProducto());
-            System.out.println(p.getDescripcion());
-            System.out.println(p.getValor());
-            System.out.println(p.getIdCategoria());
-            System.out.println(p.getCantidad());
+        try {            
             PreparedStatement pstm = cn.getConexion().prepareStatement("update productos set nombre = ?, "
                     + " descripcion = ?, "
                     + " valor = ?,"
@@ -124,8 +115,8 @@ public class DBProductos {
     public void borrarMenu(Productos m) {
 
         try {
-            PreparedStatement pstm = cn.getConexion().prepareStatement("delete from contactos "
-                    + " where con_id = ?");
+            PreparedStatement pstm = cn.getConexion().prepareStatement("delete from productos "
+                    + " where idProducto = ?");
 
             pstm.setInt(1, m.getIdProducto());
 
