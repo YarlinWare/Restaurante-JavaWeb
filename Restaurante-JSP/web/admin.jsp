@@ -9,6 +9,13 @@
 <%@page import="database.DBContactos"%>
 <%@page import="usuario.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    //HttpSession ObjSesion = request.getSession(false);
+    //String usuario = (String)ObjSesion.getAttribute("usuario");
+    //if(usuario.equals("")){
+        //response.sendRedirect("login.jsp");        
+    //}
+%>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -43,8 +50,8 @@
         <div>
             <a href="cart.jsp"><i class="fa fa-shopping-cart iconosCompra"></i>Cart</a>
         </div>
-        <div class="d-flex aling-item-end pr-3 btn-ingreso-registro">
-          <a href="login.jsp" class="btn btn-ingreso nav-link text-uppercase text-expanded">Ingresar</a>
+        <div class="d-flex aling-item-end pr-3 btn-ingreso-registro">     
+            <a href="login.jsp"  class="btn btn-ingreso nav-link text-uppercase text-expanded">Cerrar sesion</a>
           <a href="registro.jsp" class="btn btn-info nav-link text-uppercase text-expanded">Registrar</a>
         </div>
       </nav>

@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -40,6 +41,8 @@ public class InicioSesion extends HttpServlet {
         
         ControladorLogin ctrl = new ControladorLogin();
         if(ctrl.autenticacion(usuario, contraseña)){
+            //HttpSession ObjSesion = request.getSession(true);
+            //ObjSesion.setAttribute("usuario", usuario);
             response.sendRedirect("admin.jsp");
         }else{
             response.sendRedirect("login.jsp");            

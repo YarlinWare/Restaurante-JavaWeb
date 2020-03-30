@@ -48,7 +48,7 @@ public class InsertarUsuario extends HttpServlet {
             user.setPassword(request.getParameter("txtPassword"));
             conDb.insertarContacto(user);
             
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("login.jsp");
     } finally {            
         out.close();
     }

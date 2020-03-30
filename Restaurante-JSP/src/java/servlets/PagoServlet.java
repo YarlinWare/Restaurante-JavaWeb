@@ -44,13 +44,14 @@ public class PagoServlet extends HttpServlet {
         out.write(Tipo);      
         if (Tipo.equalsIgnoreCase("Tarjeta")){
             Tarjeta T = new Tarjeta();
-            //T.pagar();
-            pagando(T);
+            T.pagar();            
             request.getSession().setAttribute("rutina", T);
+            response.sendRedirect("PagoRealizado.jsp");
         }else if(Tipo.equalsIgnoreCase("Efectivo")){
             Efectivo E = new Efectivo();
-            pagando(E);
+            E.pagar();            
             request.getSession().setAttribute("rutina", E);
+            response.sendRedirect("PagoRealizado.jsp");
         }
         try{   
             

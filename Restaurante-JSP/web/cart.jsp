@@ -161,7 +161,7 @@
                                 <h4>No hay Articulos en el carro</h4>
                                 <%}%>
 			</div> 
-                    <a href="javascript:window.history.go(-2);">Seguir Comprando</a>
+                    <a href="menu.jsp">Seguir Comprando</a>
                         <p>Tipo De Pago</p>
                             <select name="TipoPago" id="TipoPago">
                                     <option value="Tarjeta" selected>Tarjeta</option>
