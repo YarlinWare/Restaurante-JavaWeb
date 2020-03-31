@@ -14,7 +14,7 @@ import java.sql.ResultSet;
  * @author eandr
  */
 public class ControladorLogin extends DBConexion {
-    public boolean autenticacion (String usuario, String contraseña){
+    public int autenticacion (String usuario, String contraseña){
         PreparedStatement pst = null;
         ResultSet rs = null;
         
@@ -27,7 +27,15 @@ public class ControladorLogin extends DBConexion {
             
             
             if (rs.absolute(1)){
-                return true;
+                int nivel = 0;
+                String sql ="select idPerfil from usuario where correo ='"+ usuario +"'and password ='"+ contraseña +"'";
+                pst = getConexion().prepareStatement(sql);
+                rs = pst.executeQuery();
+                while(rs.next()){
+                    nivel = rs.getInt(1);
+                }
+                
+                return nivel;
             }
             
         } catch (Exception e) {
@@ -40,7 +48,7 @@ public class ControladorLogin extends DBConexion {
             } catch (Exception e) {
             }
         } 
-        return false;
+        return 0;
     }
     
     

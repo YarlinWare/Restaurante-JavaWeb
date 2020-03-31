@@ -77,6 +77,9 @@
             <li class="nav-item active px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="admin.jsp">Admin</a>
             </li>
+            <li class="nav-item active px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="camarero.jsp">Camarero</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -102,7 +105,7 @@
 
                 <div class="row pt-3">
                   <div class="col-6">
-                    <a href="#"><span>Registrar</span></a>
+                    <a href="registro.jsp"><span>Registrar</span></a>
                   </div> 
                   <div class="col-6">
                     <input type="submit" class="btn btn-info" value="Ingresar">
@@ -156,6 +159,9 @@
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   </body>
+  
+      
+ 
 
 </html>
 

@@ -40,13 +40,46 @@ public class InicioSesion extends HttpServlet {
         String contraseña = request.getParameter("password");
         
         ControladorLogin ctrl = new ControladorLogin();
-        if(ctrl.autenticacion(usuario, contraseña)){
-            //HttpSession ObjSesion = request.getSession(true);
-            //ObjSesion.setAttribute("usuario", usuario);
-            response.sendRedirect("admin.jsp");
-        }else{
-            response.sendRedirect("login.jsp");            
+        HttpSession ObjSesion = request.getSession(true);
+        
+        
+        switch(ctrl.autenticacion(usuario, contraseña)){
+            case 1:
+                ObjSesion.setAttribute("nivel", "1");
+                response.sendRedirect("admin.jsp");
+                
+                break;
+            case 2:
+                 ObjSesion.setAttribute("nivel", "2");
+                 response.sendRedirect("camarero.jsp");
+                break;
+            default:
+                if (request.getParameter("cerrar")!=null){
+                    ObjSesion.invalidate();
+                    response.sendRedirect("login.jsp");
+                }else{
+                    response.sendRedirect("login.jsp"); 
+                }
+                
+                break;
+                
         }
+        
+        
+        
+        //if(ctrl.autenticacion(usuario, contraseña)){
+            
+          //  ObjSesion.setAttribute("usuario", usuario);
+            //response.sendRedirect("admin.jsp");
+        //}else{
+          //  if (request.getParameter("cerrar")!=null){
+            //ObjSesion.invalidate();
+            //response.sendRedirect("login.jsp");
+        //}else{
+          //  response.sendRedirect("login.jsp");  
+            //}
+        //}
+        
        
     }
 

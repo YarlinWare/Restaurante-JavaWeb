@@ -10,11 +10,11 @@
 <%@page import="usuario.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    //HttpSession ObjSesion = request.getSession(false);
-    //String usuario = (String)ObjSesion.getAttribute("usuario");
-    //if(usuario.equals("")){
-        //response.sendRedirect("login.jsp");        
-    //}
+    HttpSession ObjSesion = request.getSession(false);
+    String nivel = (String)ObjSesion.getAttribute("nivel");
+    if(nivel != "1"){
+        response.sendRedirect("login.jsp");        
+    }
 %>
 <!DOCTYPE html>
 <html lang="es">
@@ -51,7 +51,7 @@
             <a href="cart.jsp"><i class="fa fa-shopping-cart iconosCompra"></i>Cart</a>
         </div>
         <div class="d-flex aling-item-end pr-3 btn-ingreso-registro">     
-            <a href="login.jsp"  class="btn btn-ingreso nav-link text-uppercase text-expanded">Cerrar sesion</a>
+            <a href="InicioSesion?cerrar=true"  class="btn btn-ingreso nav-link text-uppercase text-expanded">Cerrar sesion</a>
           <a href="registro.jsp" class="btn btn-info nav-link text-uppercase text-expanded">Registrar</a>
         </div>
       </nav>
@@ -88,6 +88,9 @@
             </li>-->
             <li class="nav-item active px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="admin.jsp">Admin</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="camarero.jsp">Camarero</a>
             </li>
           </ul>
         </div>
