@@ -5,6 +5,11 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.List"%>
+
+<%@page import="java.sql.ResultSet"%>
+<%@page import="database.DBBlog"%>
+<%@page import="logica.blog.Blog"%>
 <!DOCTYPE html>
 <html>
 
@@ -15,7 +20,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Servicios | Restaurante</title>
+    <title>Blog | Restaurante</title>
 
     <!-- Bootstrap -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -49,7 +54,6 @@
       <span class="site-heading-upper text-primary mb-3">Restaurante</span>
       <span class="site-heading-lower">Tus Delicias</span>
     </h1>
-
     <!-- Navegación -->
     <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
       <div class="container">
@@ -65,8 +69,8 @@
             <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="menu.jsp">Menu</a>
             </li>
-            <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="services.jsp">Servicios</a>
+            <li class="nav-item active px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="blog.jsp">Blog</a>
             </li>
             <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="store.jsp">Visítanos</a>
@@ -74,7 +78,7 @@
             <!--<li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="contact.html">Contacto</a>
             </li>-->
-            <li class="nav-item active px-lg-4">
+            <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="admin.jsp">Admin</a>
             </li>
             <li class="nav-item px-lg-4">
@@ -86,7 +90,49 @@
     </nav>
 
 
+    <div class="container">
+        <%  
+            DBBlog dbr = new DBBlog();
+            ResultSet blog = dbr.getBlog(); 
+        %>
+        
+        <section  class="row"> 
+            <form  method="post"  action="BlogServlet">
+            <% while (blog.next()){ %>
+            <div class="page-section cta">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-xl-9 mx-auto">
+                      <div class="cta-innerv text-center rounded">
+                        <h2 class="section-heading mb-5">
+                          <span class="section-heading-upper" id="fecha" name="fecha"></span>
+                          <span class="section-heading-lower" id="titulo" name="titulo"><%= blog.getString("titulo") %></span>
+                        </h2>
+                        <p class="mb-0">
+                          <img class="mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="<%= blog.getString("imagen") %>" alt="">
+                        </p>
+                        <p class="mb-0 mbt text-left"  id="contenido" name="contenido"><%= blog.getString("contenido") %></p>
+                        <p class="mb-0 mbt">
+                          <span class="section-heading-under">Publicado por <em><b>Admin</b></em> en <em><a href="#" class="link">General</a></em></span>
+                        </p>
+                      </div>
 
+                    </div>
+                  </div>
+                </div>
+                <div class="carrito_compras ">
+                        <a href="CargarBlogs?opc=edit&idx=<%= blog.getString("idBlog") %>">Editar</a>
+                        <a href="CargarBlogs?opc=delete&idx=<%= blog.getString("idBlog") %>">Borrar</a>
+                </div>
+            </div>     
+                <% }%>             
+            </form>
+        </section >
+    </div>
+    
+    
+    
+    
     <!-- Pié de página -->
     <footer class="footer text-faded text-center py-5">
       <div class="container">

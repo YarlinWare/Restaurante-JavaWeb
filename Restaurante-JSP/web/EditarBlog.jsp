@@ -1,10 +1,11 @@
 <%-- 
-    Document   : InsertarProducto
-    Created on : 25/03/2020, 03:55:38 PM
-    Author     : eandr
+    Document   : EditarBlog
+    Created on : 30-mar-2020, 23.20.07
+    Author     : ASUS
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="logica.blog.Blog"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,9 +14,8 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Nuevo | Producto</title>
-        
-        <!-- Bootstrap -->
+        <title>Editor | Restaurante</title>
+         <!-- Bootstrap -->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Fuentes -->
@@ -26,7 +26,6 @@
         <!-- Estilos -->
         <link href="css/business-casual.css" rel="stylesheet">
         <link href="css/menu.css" rel="stylesheet">
-        
     </head>
     <body>
       <!-- Menu acceso -->
@@ -57,7 +56,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
-            <li class="nav-item  px-lg-4">
+            <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="index.jsp">Inicio</a>
             </li>
             <li class="nav-item px-lg-4">
@@ -72,52 +71,33 @@
             <!--<li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="contact.html">Contacto</a>
             </li>-->
-            <li class="nav-item  active px-lg-4">
+            <li class="nav-item active px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="admin.jsp">Admin</a>
-            </li>
-            <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="camarero.jsp">Camarero</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
      
-     <div class="container">
-        <form id="frmInsertarProducto" action="Insertar_Productos" method="POST">
-        <table class="table table-striped table-dark">
-            
-             <tr>
-                <thead class="thead-dark">
-                <th scope="col" style="text-align: center">INGRESE EL NUEVO PRODUCTO</th>                    
-                </thead>
-            </tr>
-
+     <div class="container">     
+        <form id="frmActualizarBlog" action="ActualizarBlog" method="POST">
+             <input type="hidden" id="txtId" name="txtId" value="<%= ((Blog)session.getAttribute("idBlog")).getIdBlog()%>">
+        <table  class="table table-striped table-dark">
             <tr>
-                <td style="text-align: center">Nombre</td>
-                <td><input type="text" id="txtNombre" name="txtNombre"></td>
+                <td>Titulo</td>
+                <td><input type="text" id="txtNombre" name="txtTitulo" value="<%= ((Blog)session.getAttribute("titulo")).getTitulo()%>"></td>
             </tr>
             <tr>
-                <td style="text-align: center">Descripcion</td>
-                <td><input type="text" id="txtDescripcion" name="txtDescripcion"></td>
+                <td>Contenido</td>
+                <td><input type="text" id="txtDescripcion" name="txtContenido" value="<%= ((Blog)session.getAttribute("contenido")).getContenido()%>"></td>
             </tr>
             <tr>
-                <td style="text-align: center">Valor</td>
-                <td><input type="text" id="txtValor" name="txtValor"></td>
+                <td>Imagen</td>
+                <td><input type="text" id="txtValor" name="txtImg" value="<%= ((Blog)session.getAttribute("imagen")).getImagen()%>"></td>
             </tr>
-            <tr>
-                <td style="text-align: center">Id Categoria</td>
-                <td><input type="text" id="txtCategoria" name="txtCategoria"></td>
-            </tr>
-            <tr>
-                <td style="text-align: center">Cantidad</td>
-                <td><input type="text" id="txtCantidad" name="txtCantidad"></td>
-            </tr>
-            
             <tr>
                 <td colspan="2"><input type="button" value="Aceptar" onclick="submit();"></td>
-            </tr>
-            
+            </tr>            
         </table>
         </form>
      </div>

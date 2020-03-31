@@ -9,7 +9,7 @@ package logica.pago;
  *
  * @author eandr
  */
-public  class TipoPago {
+public class TipoPago implements PagoInterface{
     String TipoDePago;
 
     public String getTipoDePago() {
@@ -20,6 +20,7 @@ public  class TipoPago {
         this.TipoDePago = TipoDePago;
     }
     
+    @Override
     public void pagar(){
         this.TipoDePago="vacio";
     }
