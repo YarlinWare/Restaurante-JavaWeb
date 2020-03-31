@@ -69,8 +69,8 @@
             <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="menu.jsp">Menu</a>
             </li>
-            <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="services.jsp">Servicios</a>
+            <li class="nav-item active px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="blog.jsp">Blog</a>
             </li>
             <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="store.jsp">Visítanos</a>
@@ -78,7 +78,7 @@
             <!--<li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="contact.html">Contacto</a>
             </li>-->
-            <li class="nav-item active px-lg-4">
+            <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="admin.jsp">Admin</a>
             </li>
           </ul>
