@@ -102,18 +102,25 @@
                     <% while (menu.next()){ %>
                     <div class="col-12 col-sm-6 col-md-4 mb-3 d-flex justify-content-center ">
                         <div class="card" style="width: 18rem;">
-                          <img
+                          <img 
                                src="<%= menu.getString("url_img") %>"
                                class="card-img-top" alt="...">
                           <div class="card-body" style="font-family: 'Abel', sans-serif;">
                               <h4 ><%= menu.getString("nombre") %></h4>
                             <p class="card-text" ><%= menu.getString("descripcion") %></p>
+                            
+                            
                             <p><strong>Valor: </strong><%= menu.getString("valor") %></p>
                             <p><strong>Cantidad: </strong><%= menu.getString("cantidad") %></p>                                
                             <div class="carrito_compras ">
                                 <!--<a href="CargarRutina?opc=edit&idx=<%= menu.getString("idProducto") %>">Editar</a>
                                 <a href="CargarRutina?opc=delete&idx=<%= menu.getString("idProducto") %>">Borrar</a>-->
                                 <a href="product-details.jsp?id=<%=menu.getString("idProducto")%>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ver Detalles</a> 
+                            </div>
+                            <div>
+                                <button class="btn btn-primary" type="button">
+                                    <%= menu.getString("idCategoria") %><span class="badge"></span>
+                                </button>
                             </div>
                           </div>
                         </div>
