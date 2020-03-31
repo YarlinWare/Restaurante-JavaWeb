@@ -48,7 +48,7 @@ public class CargarProducto extends HttpServlet {
                 p.setNombre(res.getString("nombre"));
                 p.setDescripcion(res.getString("descripcion"));
                 p.setValor(res.getInt("valor"));
-                p.setIdCategoria(res.getInt("idCategoria"));;
+                p.setIdCategoria(res.getInt("idCategoria"));
                 p.setCantidad(res.getInt("cantidad"));
                 
             }
