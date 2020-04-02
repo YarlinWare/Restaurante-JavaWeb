@@ -1,0 +1,9 @@
+Admin:
+ahernandez@restaurante.com
+Password:
+administrador
+
+Empleado:
+hperez@restaurante.com
+password:
+camarero
