@@ -115,14 +115,11 @@
                         <p class="mb-0 mbt">
                           <span class="section-heading-under">Publicado por <em><b>Admin</b></em> en <em><a href="#" class="link">General</a></em></span>
                         </p>
+                        <br>
                       </div>
 
                     </div>
                   </div>
-                </div>
-                <div class="carrito_compras ">
-                        <a href="CargarBlogs?opc=edit&idx=<%= blog.getString("idBlog") %>">Editar</a>
-                        <a href="CargarBlogs?opc=delete&idx=<%= blog.getString("idBlog") %>">Borrar</a>
                 </div>
             </div>     
                 <% }%>             

@@ -72,7 +72,7 @@ public class DBProductos {
             pstm.setString(1, m.getNombre());
             pstm.setString(2, m.getDescripcion());
             pstm.setInt(3, m.getValor());
-            pstm.setInt(4, m.getIdCategoria());;
+            pstm.setInt(4, m.getIdCategoria());
             pstm.setInt(5, m.getCantidad());
 
             pstm.executeUpdate();
@@ -99,7 +99,7 @@ public class DBProductos {
             pstm.setInt(3, p.getValor());
             pstm.setInt(4, p.getIdCategoria());
             pstm.setInt(5, p.getCantidad());
-             pstm.setInt(6, p.getIdProducto());
+            pstm.setInt(6, p.getIdProducto());
             
             
 

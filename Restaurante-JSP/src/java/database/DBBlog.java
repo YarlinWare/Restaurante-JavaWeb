@@ -10,6 +10,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import logica.blog.Blog;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 /**
  *
  * @author ASUS
@@ -53,24 +56,18 @@ public class DBBlog {
     }
 
     public void insertarBlog(Blog b) {
+        
+        Date date = new Date();
+        DateFormat hourdateFormat = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
         try {
-            PreparedStatement pstm = cn.getConexion().prepareStatement("insert into contactos (idPedido, "
-                    + " fecha,"
-                    + " valorNeto, "
-                    + " valorTotal,"
-                    + " propina,"
-                    + " estado,"
-                    + " pago,"
-                    + " iva,"
-                    + " values(?,?,?,?,?,?,?,?)");
-            /*pstm.setInt(1, b.getIdPedido());
-            pstm.setString(2, b.getFecha());
-            pstm.setDouble(3, b.getNeto());
-            pstm.setDouble(4, b.getTotal());
-            pstm.setDouble(5, b.getPropina());
-            pstm.setBoolean(6, b.isEstado());
-            pstm.setBoolean(7, b.isPago());
-            pstm.setDouble(8, b.getIVA());*/
+            PreparedStatement pstm = cn.getConexion().prepareStatement("insert into blog ("
+                    + " titulo,"
+                    + " contenido, "
+                    + " created) "
+                    + " values(?,?,?)");
+            pstm.setString(1, b.getTitulo());
+            pstm.setString(2, b.getContenido());
+            pstm.setString(3, hourdateFormat.format(date));
 
             pstm.executeUpdate();
 
