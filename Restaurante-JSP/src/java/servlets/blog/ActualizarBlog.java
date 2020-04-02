@@ -41,9 +41,9 @@ public class ActualizarBlog extends HttpServlet {
            p.setIdBlog(Integer.parseInt(request.getParameter("txtId")));
            p.setTitulo(request.getParameter("txtTitulo"));
            p.setContenido(request.getParameter("txtContenido"));           
-           p.setContenido(request.getParameter("txtImg"));
+           p.setImagen(request.getParameter("txtImg"));      
            
-           blogDB.actualizarBlog(p);
+           blogDB.actualizarBlog(p);           
            
            response.sendRedirect("blog.jsp");
         }finally {            

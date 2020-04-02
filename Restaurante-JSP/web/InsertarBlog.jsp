@@ -1,6 +1,6 @@
 <%-- 
-    Document   : EditarBlog
-    Created on : 30-mar-2020, 23.20.07
+    Document   : InsertarBlog
+    Created on : 1-apr-2020, 21.20.25
     Author     : ASUS
 --%>
 
@@ -14,8 +14,9 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Editor | Restaurante</title>
-         <!-- Bootstrap -->
+        <title>Nuevo | Producto</title>
+        
+        <!-- Bootstrap -->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Fuentes -->
@@ -28,13 +29,14 @@
         <link href="css/menu.css" rel="stylesheet">
         
         <!-- Main Quill library -->
- <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+        <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
         <style>
             textarea {
                 height: 246px;
                 width: 100%;
             }
         </style>
+        
     </head>
     <body>
       <!-- Menu acceso -->
@@ -65,7 +67,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
-            <li class="nav-item px-lg-4">
+            <li class="nav-item  px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="index.jsp">Inicio</a>
             </li>
             <li class="nav-item px-lg-4">
@@ -80,32 +82,34 @@
             <!--<li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="contact.html">Contacto</a>
             </li>-->
-            <li class="nav-item active px-lg-4">
+            <li class="nav-item  active px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="admin.jsp">Admin</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="camarero.jsp">Camarero</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
      
-     <div class="container">     
-        <form id="frmActualizarBlog" action="ActualizarBlog" method="POST">
-             <input type="hidden" id="txtId" name="txtId" value="<%= ((Blog)session.getAttribute("blog")).getIdBlog()%>">
+   <div class="container">     
+        <form id="frmInsertarBlog" action="InsertarBlog" method="POST">
         <table  class="table table-striped table-dark">
             <tr>
                 <td>Titulo</td>
-                <td><input type="text" id="txtTitulo" name="txtTitulo" value="<%= ((Blog)session.getAttribute("blog")).getTitulo()%>"></td>
+                <td><input type="text" id="txtTitulo" name="txtTitulo"></td>
             </tr>
             <tr>
                 <td>Imagen Principal</td>
                 <td>
-                    <input type="file" id="txtImg" name="txtImg" value="img/<%= ((Blog)session.getAttribute("blog")).getImagen()%>">
+                    <input type="file" id="txtImg" name="txtImg" value="img/">
                 </td>
             </tr>
             <tr>
                 <td>Contenido</td>
                 <td>
-                    <textarea id="txtContenido" name="txtContenido" placeholder=""><%= ((Blog)session.getAttribute("blog")).getContenido()%></textarea>
+                    <textarea id="txtContenido" name="txtContenido" placeholder=""></textarea>
                     
                 </td>
             </tr>
@@ -118,5 +122,5 @@
         <script>
             CKEDITOR.replace( 'txtContenido' );
         </script>
-</body>
+    </body>
 </html>

@@ -1,23 +1,17 @@
 <%-- 
-    Document   : index.jsp
-    Created on : 15-mar-2020, 16.14.30
+    Document   : ListBlogs
+    Created on : 1-apr-2020, 21.25.15
     Author     : ASUS
 --%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
 
 <%@page import="java.sql.ResultSet"%>
-<%@page import="database.DBContactos"%>
-<%@page import="usuario.Usuario"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%
-    HttpSession ObjSesion = request.getSession(false);
-    String nivel = (String)ObjSesion.getAttribute("nivel");
-    if(nivel != "1"){
-        response.sendRedirect("login.jsp");        
-    }
-%>
+<%@page import="database.DBBlog"%>
+<%@page import="logica.blog.Blog"%>
 <!DOCTYPE html>
-<html lang="es">
+<html>
 
   <head>
 
@@ -26,7 +20,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Inicio | Restaurante</title>
+    <title>Blog | Restaurante</title>
 
     <!-- Bootstrap -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -50,18 +44,16 @@
         <div>
             <a href="cart.jsp"><i class="fa fa-shopping-cart iconosCompra"></i>Cart</a>
         </div>
-        <div class="d-flex aling-item-end pr-3 btn-ingreso-registro">     
-            <a href="InicioSesion?cerrar=true"  class="btn btn-ingreso nav-link text-uppercase text-expanded">Cerrar sesion</a>
+        <div class="d-flex aling-item-end pr-3 btn-ingreso-registro">
+          <a href="login.jsp" class="btn btn-ingreso nav-link text-uppercase text-expanded">Ingresar</a>
           <a href="registro.jsp" class="btn btn-info nav-link text-uppercase text-expanded">Registrar</a>
         </div>
       </nav>
     <!-- Menu acceso -->
-    
     <h1 class="site-heading text-center text-white d-none d-lg-block">
       <span class="site-heading-upper text-primary mb-3">Restaurante</span>
       <span class="site-heading-lower">Tus Delicias</span>
     </h1>
-
     <!-- Navegación -->
     <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
       <div class="container">
@@ -77,7 +69,7 @@
             <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="menu.jsp">Menu</a>
             </li>
-            <li class="nav-item px-lg-4">
+            <li class="nav-item active px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="blog.jsp">Blog</a>
             </li>
             <li class="nav-item px-lg-4">
@@ -86,7 +78,7 @@
             <!--<li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="contact.html">Contacto</a>
             </li>-->
-            <li class="nav-item active px-lg-4">
+            <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="admin.jsp">Admin</a>
             </li>
             <li class="nav-item px-lg-4">
@@ -97,57 +89,53 @@
       </div>
     </nav>
 
-    <!-- Mensaje -->
-    <section class="page-section cta">
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-9 mx-auto ">
-            <div class="cta-inner text-center rounded">
-              <h2 class="section-heading mb-4">
-                <span class="section-heading-upper">Centro de</span>
-                <span class="section-heading-lower">Administración</span>
-              </h2>
-              <p class="mb-0">Administra el inventario, usuarios y pagos entre otros.</p>
-            </div>
-          </div>
-            <div class="row col-xl-12 mx-auto mt-5 justify-content-between">
-                <div class="card bg-light mb-3" style="max-width: 18rem;">
-                    <div class="card-header">Usuarios</div>
-                    <div class="card-body">
-                      <h5 class="card-title">Gestión de usuarios</h5>
-                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                      <a class="btn btn-primary" href="Listusuarios.jsp" role="button">Administrar</a>
-                    </div>
-                </div>
-                <div class="card bg-light mb-3" style="max-width: 18rem;">
-                    <div class="card-header">Productos</div>
-                    <div class="card-body">
-                      <h5 class="card-title">Gestión de productos</h5>
-                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                      <a class="btn btn-primary" href="Listproductos.jsp" role="button">Administrar</a>
-                    </div>
-                </div>
-                <div class="card bg-light mb-3" style="max-width: 18rem;">
-                    <div class="card-header">Blog</div>
-                    <div class="card-body">
-                      <h5 class="card-title">Gestión de articulos</h5>
-                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                      <a class="btn btn-primary" href="ListBlogs.jsp" role="button">Administrar</a>
-                    </div>
-                </div>
-                <!--<div class="card bg-light mb-3" style="max-width: 15rem;">
-                    <div class="card-header">Otros ajustes</div>
-                    <div class="card-body">
-                      <h5 class="card-title">Gestión de ajustes</h5>
-                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    </div>
-                </div>-->
-            </div>
-            
-        </div>
-      </div>
-    </section>
 
+    <div class="container">
+        <%  
+            DBBlog dbr = new DBBlog();
+            ResultSet blog = dbr.getBlog(); 
+        %>
+        
+        <section  class="row"> 
+            <form  method="post"  action="BlogServlet">
+            <% while (blog.next()){ %>
+            <div class="page-section cta">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-xl-9 mx-auto">
+                      <div class="cta-innerv text-center rounded">
+                        <h2 class="section-heading mb-5">
+                          <span class="section-heading-upper" id="fecha" name="fecha"></span>
+                          <span class="section-heading-lower" id="titulo" name="titulo"><%= blog.getString("titulo") %></span>
+                        </h2>
+                        <p class="mb-0">
+                          <img class="mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" id="imagen" name="imagen" src="<%= blog.getString("imagen") %>" alt="">
+                        </p>
+                        <p class="mb-0 mbt text-left"  id="contenido" name="contenido"><%= blog.getString("contenido") %></p>
+                        <p class="mb-0 mbt">
+                          <span class="section-heading-under">Publicado por <em><b>Admin</b></em> en <em><a href="#" class="link">General</a></em></span>
+                        </p>
+                        <br>
+                        
+                        <div class="acciones-blog ">
+                            <a class="btn btn-success" href="InsertarBlog.jsp">Nuevo</a>
+                            <a class="btn btn-info" href="CargarBlogs?opc=edit&idx=<%= blog.getString("idBlog") %>">Editar</a>
+                            <a class="btn btn-danger" href="CargarBlogs?opc=delete&idx=<%= blog.getString("idBlog") %>">Borrar</a>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+            </div>     
+                <% }%>             
+            </form>
+        </section >
+    </div>
+    
+    
+    
+    
     <!-- Pié de página -->
     <footer class="footer text-faded text-center py-5">
       <div class="container">
@@ -187,4 +175,3 @@
   </body>
 
 </html>
-

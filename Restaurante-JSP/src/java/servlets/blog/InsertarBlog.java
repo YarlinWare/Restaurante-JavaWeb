@@ -8,7 +8,6 @@ package servlets.blog;
 import database.DBBlog;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.ResultSet;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,8 +19,8 @@ import logica.blog.Blog;
  *
  * @author ASUS
  */
-@WebServlet(name = "CargarBlogs", urlPatterns = {"/CargarBlogs"})
-public class CargarBlogs extends HttpServlet {
+@WebServlet(name = "InsertarBlog", urlPatterns = {"/InsertarBlog"})
+public class InsertarBlog extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,28 +37,14 @@ public class CargarBlogs extends HttpServlet {
         PrintWriter out = response.getWriter();
         Blog b = new Blog();
         DBBlog blogDB = new DBBlog();
-        try  {
-            int conId = Integer.parseInt(request.getParameter("idx"));
-            String opc = request.getParameter("opc");
-            out.write(opc);
-            ResultSet res = blogDB.getBlogById(conId);
-            if (res.next()){
-                b.setIdBlog(res.getInt("idBlog"));
-                b.setTitulo(res.getString("titulo"));
-                b.setContenido(res.getString("contenido"));
-                b.setImagen(res.getString("imagen"));                
-            }
-            if(opc.equals("edit")){                
-                request.getSession().setAttribute("blog", b);
-                response.sendRedirect("EditarBlog.jsp");
-            }
-            if(opc.equals("delete")){
-                blogDB.borrarBlog(b);
-                response.sendRedirect("blog.jsp");
-            }
+        try {
+            b.setTitulo(request.getParameter("txtTitulo"));
+            b.setContenido(request.getParameter("txtContenido"));
+            b.setImagen(request.getParameter("txtImg"));
             
-        }catch(Exception e){
+            blogDB.insertarBlog(b);
             
+            response.sendRedirect("ListBlogs.jsp");
         }finally {            
             out.close();
         }
