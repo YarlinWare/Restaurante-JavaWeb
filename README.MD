@@ -6,9 +6,15 @@
 
 - Página web de un restaurante
 - Implementación de los principios SOLID
-- Conexión con Bases de datos
+- Otros principios:
+	- Principio Yagni
+	- Principio Boy Scout
+	- Ley de Demeter
+	- Aplicación de principio SOC
+- Conexión con Bases de datos (MySQL)
 - Permite añadir productos (solo administradores)
 - Carrito de compras
+- Sección de blogs (agregar, editar y eliminar)
 - Etc
 	  
 
@@ -24,4 +30,11 @@ Cristhian M. Yara P.  | 20181020081
 - Bootstrap
 - Java JSP
 - JavaScript
+
+
+#### Usuarios de prueba:
+Perfil| Usuario | Contraseña
+------------- |------------- | -------------
+Administrador | ahernandez@restaurante.com  | Administrador|
+Empleado | hperez@restaurante.com | camarero
 
