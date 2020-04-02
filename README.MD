@@ -35,6 +35,6 @@ Cristhian M. Yara P.  | 20181020081
 #### Usuarios de prueba:
 Perfil| Usuario | Contraseña
 ------------- |------------- | -------------
-Administrador | ahernandez@restaurante.com  | Administrador|
+Administrador | ahernandez@restaurante.com  | administrador|
 Empleado | hperez@restaurante.com | camarero
 
